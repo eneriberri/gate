@@ -51,13 +51,18 @@
       	width: 100px;
       }
       .gate-tagline {
-        text-align: center;
-        margin-top: 15px;
+/*        margin-top: 30px;*/
         color: white;
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        margin-left: -180px;
+        width: 300px;
+        background-color: black;
+        padding: 30px;
+        border-radius: 3px;
+        border: 1px solid white;
         display: none;
-        position: relative;
-        letter-spacing: 3px;
-        text-transform: uppercase;
       }
       .dl-app-container {
         text-align: center;
@@ -73,8 +78,9 @@
     <script>
       $(document).ready(function() {
         $('.gate-road').animate({'border-bottom-width': '525px'}, 2500, function() {
-          // $('.gate-tagline').show('slow');
-          $('.dl-android').show('slow');
+          $('.dl-android').show('slow', function() {
+            $('.gate-tagline').show('slow');
+          });    
         });
       });
     </script>
@@ -85,11 +91,13 @@
       <img src="logo.png">
       gate     
     </div>
-    <div class="gate-tagline">
-      unlock gate today
-    </div>
     <div class="dl-app-container">
       <img class="dl-android" src="badge_android.png">
+    </div>
+    <div class="gate-tagline">
+      Beta version available now on Android.
+      <br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </div>
     <div class="gate-road"></div>
   </body>
