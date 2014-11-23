@@ -73,13 +73,26 @@
         margin-top: 25px;
         display: none;
       }
+      footer {
+        position: absolute;
+        bottom: 5px;
+        width: 260px;
+        left: 50%;
+        margin-left: -130px;
+      }
+      .more-links a {
+        color: white;
+        font-size: 13px;
+        text-decoration: none;
+        letter-spacing: 1px;
+      }
     </style>
     
     <script>
       $(document).ready(function() {
         $('.gate-road').animate({'border-bottom-width': '525px'}, 2500, function() {
           $('.dl-android').show('slow', function() {
-            $('.gate-tagline').show('slow');
+            // $('.gate-tagline').show('slow');
           });    
         });
       });
@@ -94,12 +107,21 @@
     <div class="dl-app-container">
       <img class="dl-android" src="badge_android.png">
     </div>
-    <div class="gate-tagline">
+    <!-- <div class="gate-tagline">
       Beta version available now on Android.
       <br>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </div>
+    </div> -->
     <div class="gate-road"></div>
+    <footer>
+      <div class="more-links">
+        <a href="#">About</a>&nbsp;
+        <a href="#">Jobs</a>&nbsp;
+        <a href="#">Support</a>&nbsp;
+        <a href="#">Privacy</a>&nbsp;
+        <a href="#">Terms</a>     
+      </div>
+    </footer>
   </body>
 
 </HTML>
