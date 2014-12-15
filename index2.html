@@ -5,9 +5,13 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <style>
+      html {
+        height: 100%;
+        position: relative;
+      }
       body {
+        margin: 0;
         font-family: 'Roboto', sans-serif;   
-        margin: 10px 0 0; 
         background: url('android_device.png'); 
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -23,16 +27,12 @@
         display: block;
         margin: 0 auto;
       }
-      .gate-road {
-        height: 0px;
-      	border-bottom: 100px solid black;
-      	border-left: 620px solid transparent;
-      	border-right: 620px solid transparent;
-        width: 14%;
+      .gate-overlay {
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
         position: absolute;
-        bottom: 0;
-        z-index: -1;
-        opacity: 0.5;
       }
       #trapezoid {
       	border-bottom: 100px solid red;
@@ -81,20 +81,21 @@
     
     <script>
       $(document).ready(function() {
-        $('.gate-road').animate({'border-bottom-width': '525px'}, 2500, function() {
-          $('.dl-android').show('slow', function() {
-            // $('.gate-tagline').show('slow');
-          });    
-        });
+        // $('.gate-road').animate({'border-bottom-width': '525px'}, 2500, function() {
+//           $('.dl-android').show('slow', function() {
+//             // $('.gate-tagline').show('slow');
+//           });
+//         });
       });
     </script>
   </head>
 
   <body>
-    <div class="gate-header">
+    <div class="gate-overlay"></div>
+    <!-- <div class="gate-header">
       <img src="logo.png">
-      gate     
-    </div>
+      gate
+    </div> -->
     <div class="dl-app-container">
       <img class="dl-android" src="badge_android.png">
     </div>
@@ -103,7 +104,7 @@
       <br>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </div> -->
-    <div class="gate-road"></div>
+    
     <footer>
       <div class="more-links">
         <a href="#">About</a>&nbsp;
