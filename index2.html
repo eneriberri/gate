@@ -12,10 +12,16 @@
       body {
         margin: 0;
         font-family: 'Roboto', sans-serif;   
-        background: url('android_device.png'); 
+/*        background: url('android_device.png');
         background-repeat: no-repeat;
         background-attachment: fixed;
-        background-position: center; 
+        background-position: center;*/
+      }
+      .android-device {
+        position: relative;
+        background: url('android_device.png'); 
+        width: 800px;
+        height: 600px;
       }
       .gate-header {
         letter-spacing: 5px;
@@ -28,11 +34,16 @@
         margin: 0 auto;
       }
       .gate-overlay {
-        background-color: black;
+/*        background-color: black;*/
         width: 100%;
         height: 100%;
         opacity: 0.3;
         position: absolute;
+      }
+      .device-logo {
+        position: absolute;
+        top: 36%;
+        left: 41%;
       }
       #trapezoid {
       	border-bottom: 100px solid red;
@@ -92,6 +103,9 @@
 
   <body>
     <div class="gate-overlay"></div>
+    <div class="android-device">
+      <img class="device-logo" src="gate_logo_device.png">
+    </div>
     <!-- <div class="gate-header">
       <img src="logo.png">
       gate
