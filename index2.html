@@ -39,6 +39,18 @@
         top: -336px;
         display: none;
       }
+      .device-band2 {
+      	width: 225px;
+      	height: 10px;
+      	background: black;
+        -ms-transform: rotate(-32deg) skew(12deg,1deg); /* IE 9 */
+        -webkit-transform: rotate(-32deg) skew(12deg,1deg); /* Chrome, Safari, Opera */
+        transform: rotate(-32deg) skew(12deg,1deg);
+        position: relative;
+        left: 45.1%;
+        top: -200px;
+        display: none;
+      }
       
       
 /*GATE HEADER AND TAGLINE*/
@@ -102,17 +114,22 @@
       $(document).ready(function() {
         var $androidContainer = $('.android-container'),
             $logo = $('.device-logo'),
-            $deviceBand1 = $('.device-band1');
+            $deviceBand1 = $('.device-band1'),
+            $deviceBand2 = $('.device-band2');
         
         //Pause before the start of all the animations
         setTimeout(function() {
             $androidContainer.fadeIn(1200, function() {
               $logo.animate({'top': '25%'}, 800, function() {
                 $logo.fadeOut(500, function() {
-                  $deviceBand1.fadeIn(100, function() {
+                  $deviceBand1.fadeIn(100);
+                  $deviceBand2.fadeIn(100, function() {
+                    $deviceBand2.animate({'top': '-310px'}, 800, function() {
+                      $deviceBand2.fadeOut();
+                    });
                     $deviceBand1.animate({'top': '-430px'}, 800, function() {
                       $deviceBand1.fadeOut();
-                    })
+                    });
                   });
                 });      
               });
@@ -133,6 +150,7 @@
       <img class="android-device" src="android_device2.png">
       <img class="device-logo" src="gate_logo_device.png">
       <div class="device-band1"></div>
+      <div class="device-band2"></div>
     </div>
     <div class="dl-app-container">
       <img class="dl-android" src="badge_android.png">
