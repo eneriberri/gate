@@ -5,15 +5,12 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Meie+Script|Roboto' rel='stylesheet' type='text/css'>
     <style>
-      html {
-/*        height: 100%;*/
-/*        position: relative;*/
-      }
       body {
         margin: 0;
         font-family: 'Roboto', sans-serif;   
-/*        position: relative;*/
       }
+      
+/*ANDROID DEVICE*/
       .android-container {
         display: none;
         position: relative;
@@ -30,7 +27,21 @@
         top: 57%;
         left: 46%;
       }
+      .device-band1 {
+      	width: 210px;
+      	height: 40px;
+      	background: black;
+        -ms-transform: rotate(-32deg) skew(10deg,4deg); /* IE 9 */
+        -webkit-transform: rotate(-32deg) skew(10deg,4deg); /* Chrome, Safari, Opera */
+        transform: rotate(-32deg) skew(10deg,4deg);
+        position: relative;
+        left: 35.3%;
+        top: -336px;
+        display: none;
+      }
       
+      
+/*GATE HEADER AND TAGLINE*/
       .gate-header {
         letter-spacing: 35px;
         font-size: 135px;
@@ -48,21 +59,7 @@
         text-transform: none;
         font-family: 'Meie Script', cursive;
       }
-      
-      .gate-overlay {
-/*        background-color: black;*/
-        width: 100%;
-        height: 100%;
-        opacity: 0.1;
-        position: absolute;
-      }
-      #trapezoid {
-      	border-bottom: 100px solid red;
-      	border-left: 50px solid transparent;
-      	border-right: 50px solid transparent;
-      	height: 0;
-      	width: 100px;
-      }
+
       .gate-tagline {
 /*        margin-top: 30px;*/
         color: white;
@@ -104,31 +101,28 @@
     <script>
       $(document).ready(function() {
         var $androidContainer = $('.android-container'),
-            $logo = $('.device-logo');
+            $logo = $('.device-logo'),
+            $deviceBand1 = $('.device-band1');
         
         //Pause before the start of all the animations
         setTimeout(function() {
             $androidContainer.fadeIn(1200, function() {
               $logo.animate({'top': '25%'}, 800, function() {
-                $logo.fadeOut();
+                $logo.fadeOut(500, function() {
+                  $deviceBand1.fadeIn(100, function() {
+                    $deviceBand1.animate({'top': '-430px'}, 800, function() {
+                      $deviceBand1.fadeOut();
+                    })
+                  });
+                });      
               });
             });
         }, 500);
-
-        // $android.fadeIn(2500, function() {
-        //   $logo.animate({'top': '10%'}, 800, function() {
-        //     $logo.fadeOut();
-        //   });
-        // });
-        
-        // var $gateHeader = $('.gate-header');
-        // $gateHeader.animate({'z-index':  1});
       });
     </script>
   </head>
 
   <body>
-    <div class="gate-overlay"></div>
     <div class="gate-header">
       gate
       <div class="tagline">
@@ -138,6 +132,7 @@
     <div class="android-container">
       <img class="android-device" src="android_device2.png">
       <img class="device-logo" src="gate_logo_device.png">
+      <div class="device-band1"></div>
     </div>
     <div class="dl-app-container">
       <img class="dl-android" src="badge_android.png">
