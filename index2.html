@@ -12,26 +12,25 @@
       body {
         margin: 0;
         font-family: 'Roboto', sans-serif;   
-/*        background: url('android_device.png');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;*/
+        position: relative;
       }
       .android-device {
         position: relative;
         background: url('android_device.png'); 
         width: 800px;
         height: 600px;
+        left: 50%;
+        margin-left: -400px;
       }
       .gate-header {
-        letter-spacing: 5px;
-        font-size: 56px;
+        letter-spacing: 35px;
+        font-size: 135px;
         text-align: center;
         text-transform: uppercase;
-      }
-      .gate-header img {
-        display: block;
-        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -237px;
       }
       .gate-overlay {
 /*        background-color: black;*/
@@ -92,24 +91,22 @@
     
     <script>
       $(document).ready(function() {
-        // $('.gate-road').animate({'border-bottom-width': '525px'}, 2500, function() {
-//           $('.dl-android').show('slow', function() {
-//             // $('.gate-tagline').show('slow');
-//           });
-//         });
+        var $logo = $('.device-logo');
+        $logo.animate({'top': '10%'}, 800, function() {
+          $logo.fadeOut();
+        }); 
       });
     </script>
   </head>
 
   <body>
     <div class="gate-overlay"></div>
+    <div class="gate-header">
+      gate
+    </div>
     <div class="android-device">
       <img class="device-logo" src="gate_logo_device.png">
     </div>
-    <!-- <div class="gate-header">
-      <img src="logo.png">
-      gate
-    </div> -->
     <div class="dl-app-container">
       <img class="dl-android" src="badge_android.png">
     </div>
