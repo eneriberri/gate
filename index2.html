@@ -6,13 +6,13 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <style>
       html {
-        height: 100%;
-        position: relative;
+/*        height: 100%;*/
+/*        position: relative;*/
       }
       body {
         margin: 0;
         font-family: 'Roboto', sans-serif;   
-        position: relative;
+/*        position: relative;*/
       }
       .android-device {
         position: relative;
@@ -21,16 +21,18 @@
         height: 600px;
         left: 50%;
         margin-left: -400px;
+        display: none;
       }
       .gate-header {
         letter-spacing: 35px;
         font-size: 135px;
-        text-align: center;
         text-transform: uppercase;
         position: absolute;
         top: 50%;
         left: 50%;
         margin-left: -237px;
+        margin-top: -116px;
+        z-index: 1;
       }
       .gate-overlay {
 /*        background-color: black;*/
@@ -91,10 +93,29 @@
     
     <script>
       $(document).ready(function() {
-        var $logo = $('.device-logo');
-        $logo.animate({'top': '10%'}, 800, function() {
-          $logo.fadeOut();
-        }); 
+        var $gateHeader = $('.gate-header'),
+            $android = $('.android-device'),
+            $logo = $('.device-logo');
+        
+        //Pause before the start of all the animations
+        setTimeout(function() {
+          $gateHeader.animate({'top': 0, 'margin-top': '-20px'}, 1500, function() {
+            // $android.fadeIn(2500, function() {
+        //       $logo.animate({'top': '10%'}, 800, function() {
+        //         $logo.fadeOut();
+        //       });
+        //     });
+          });
+        }, 500);
+
+        // $android.fadeIn(2500, function() {
+        //   $logo.animate({'top': '10%'}, 800, function() {
+        //     $logo.fadeOut();
+        //   });
+        // });
+        
+        // var $gateHeader = $('.gate-header');
+        // $gateHeader.animate({'z-index':  1});
       });
     </script>
   </head>
