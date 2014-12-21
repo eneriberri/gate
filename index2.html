@@ -14,14 +14,21 @@
         font-family: 'Roboto', sans-serif;   
 /*        position: relative;*/
       }
+      .android-container {
+        display: none;
+        position: relative;
+        opacity: 0.2;
+      }
       .android-device {
         position: relative;
-        /*background: url('android_device2.png');*/ 
-        width: 800px;
-        height: 600px;
         left: 50%;
         margin-left: -400px;
-/*        display: none;*/
+        top: 120px;
+      }
+      .device-logo {
+        position: absolute;
+        top: 57%;
+        left: 46%;
       }
       .gate-header {
         letter-spacing: 35px;
@@ -38,13 +45,8 @@
 /*        background-color: black;*/
         width: 100%;
         height: 100%;
-        opacity: 0.3;
+        opacity: 0.1;
         position: absolute;
-      }
-      .device-logo {
-        position: absolute;
-        top: 36%;
-        left: 41%;
       }
       #trapezoid {
       	border-bottom: 100px solid red;
@@ -93,19 +95,16 @@
     
     <script>
       $(document).ready(function() {
-        var $gateHeader = $('.gate-header'),
-            $android = $('.android-device'),
+        var $androidContainer = $('.android-container'),
             $logo = $('.device-logo');
         
         //Pause before the start of all the animations
         setTimeout(function() {
-          $gateHeader.animate({'top': 0, 'margin-top': '-20px'}, 1500, function() {
-            // $android.fadeIn(2500, function() {
-        //       $logo.animate({'top': '10%'}, 800, function() {
-        //         $logo.fadeOut();
-        //       });
-        //     });
-          });
+            $androidContainer.fadeIn(1200, function() {
+              $logo.animate({'top': '25%'}, 800, function() {
+                $logo.fadeOut();
+              });
+            });
         }, 500);
 
         // $android.fadeIn(2500, function() {
@@ -125,8 +124,9 @@
     <div class="gate-header">
       gate
     </div>
-    <div class="android-device">
-      <img class="device-logo" src="android_device2.png">
+    <div class="android-container">
+      <img class="android-device" src="android_device2.png">
+      <img class="device-logo" src="gate_logo_device.png">
     </div>
     <div class="dl-app-container">
       <img class="dl-android" src="badge_android.png">
@@ -137,15 +137,15 @@
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </div> -->
     
-    <footer>
+    <!-- <footer>
       <div class="more-links">
         <a href="#">About</a>&nbsp;
         <a href="#">Jobs</a>&nbsp;
         <a href="#">Support</a>&nbsp;
         <a href="#">Privacy</a>&nbsp;
-        <a href="#">Terms</a>     
+        <a href="#">Terms</a>
       </div>
-    </footer>
+    </footer> -->
   </body>
 
 </HTML>
