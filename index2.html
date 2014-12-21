@@ -11,7 +11,7 @@
       }
       
       .overlay {
-/*        opacity: .8;*/
+        opacity: .9;
         background-color: black;
         width: 3000px;
         height: 3000px;
@@ -22,13 +22,14 @@
       .android-container {
         display: none;
         position: relative;
-        opacity: 0.1;
+        opacity: 0.2;
       }
       .android-device {
         position: relative;
         left: 50%;
-        margin-left: -400px;
+        margin-left: -360px;
         top: 120px;
+        width: 50%;
       }
       .device-logo {
         position: absolute;
@@ -36,28 +37,28 @@
         left: 46%;
       }
       .device-band1 {
-      	width: 210px;
+      	width: 285px;
       	height: 40px;
-      	background: #999;
+      	background: black;
         -ms-transform: rotate(-32deg) skew(10deg,4deg); /* IE 9 */
         -webkit-transform: rotate(-32deg) skew(10deg,4deg); /* Chrome, Safari, Opera */
         transform: rotate(-32deg) skew(10deg,4deg);
         position: relative;
         left: 35.3%;
         top: -336px;
-        display: none;
+/*        display: none;*/
       }
       .device-band2, .device-band3, .device-band4, .device-band5 {
-      	width: 225px;
+      	width: 300px;
       	height: 10px;
-      	background: #999;
+      	background: black;
         -ms-transform: rotate(-32deg) skew(12deg,1deg); /* IE 9 */
         -webkit-transform: rotate(-32deg) skew(12deg,1deg); /* Chrome, Safari, Opera */
         transform: rotate(-32deg) skew(12deg,1deg);
         position: relative;
         left: 45.1%;
         top: -200px;
-        display: none;
+/*        display: none;*/
       }
       .device-band3 {
         left: 45.8%;
@@ -88,6 +89,7 @@
         letter-spacing: 0;
         text-transform: none;
         font-family: 'Meie Script', cursive;
+        margin-left: 10px;
       }
 
       .gate-tagline {
@@ -146,33 +148,33 @@
                   
                   
                   //device band animations (@todo: move out of js & make all of these css transitions)
-                  $deviceBand1.fadeIn(100);
-                  $deviceBand2.fadeIn(100);
-                  $deviceBand3.fadeIn(100);
-                  $deviceBand4.fadeIn(100);
-                  
-                  $deviceBand5.fadeIn(100, function() {
-                    $deviceBand1.animate({'top': '-430px'}, 800, function() {
-                      $deviceBand1.fadeOut();
-                    });
-                    
-                    $deviceBand2.animate({'top': '-310px'}, 800, function() {
-                      $deviceBand2.fadeOut();
-                    });
-                    
-                    $deviceBand3.animate({'top': '-310px'}, 800, function() {
-                      $deviceBand3.fadeOut();
-                    });
-                    
-                    $deviceBand4.animate({'top': '-310px'}, 800, function() {
-                      $deviceBand4.fadeOut();
-                    });
-                    
-                    $deviceBand5.animate({'top': '-310px'}, 800, function() {
-                      $deviceBand5.fadeOut();
-                    });
-                    
-                  });
+                  // $deviceBand1.fadeIn(100);
+//                   $deviceBand2.fadeIn(100);
+//                   $deviceBand3.fadeIn(100);
+//                   $deviceBand4.fadeIn(100);
+//
+//                   $deviceBand5.fadeIn(100, function() {
+//                     $deviceBand1.animate({'top': '-430px'}, 800, function() {
+//                       $deviceBand1.fadeOut();
+//                     });
+//
+//                     $deviceBand2.animate({'top': '-310px'}, 800, function() {
+//                       $deviceBand2.fadeOut();
+//                     });
+//
+//                     $deviceBand3.animate({'top': '-310px'}, 800, function() {
+//                       $deviceBand3.fadeOut();
+//                     });
+//
+//                     $deviceBand4.animate({'top': '-310px'}, 800, function() {
+//                       $deviceBand4.fadeOut();
+//                     });
+//
+//                     $deviceBand5.animate({'top': '-310px'}, 800, function() {
+//                       $deviceBand5.fadeOut();
+//                     });
+//
+//                   });
                   
                 });      
               });
@@ -191,7 +193,7 @@
       </div>
     </div>
     <div class="android-container">
-      <img class="android-device" src="android_device2.png">
+      <img class="android-device" src="nexus.png">
       <img class="device-logo" src="gate_logo_device.png">
       <div class="device-band1"></div>
       <div class="device-band2"></div>
