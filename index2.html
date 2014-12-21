@@ -10,11 +10,19 @@
         font-family: 'Roboto', sans-serif;   
       }
       
+      .overlay {
+/*        opacity: .8;*/
+        background-color: black;
+        width: 3000px;
+        height: 3000px;
+        position: fixed;
+      }
+      
 /*ANDROID DEVICE*/
       .android-container {
         display: none;
         position: relative;
-        opacity: 0.2;
+        opacity: 0.1;
       }
       .android-device {
         position: relative;
@@ -30,7 +38,7 @@
       .device-band1 {
       	width: 210px;
       	height: 40px;
-      	background: black;
+      	background: #999;
         -ms-transform: rotate(-32deg) skew(10deg,4deg); /* IE 9 */
         -webkit-transform: rotate(-32deg) skew(10deg,4deg); /* Chrome, Safari, Opera */
         transform: rotate(-32deg) skew(10deg,4deg);
@@ -39,10 +47,10 @@
         top: -336px;
         display: none;
       }
-      .device-band2 {
+      .device-band2, .device-band3, .device-band4, .device-band5 {
       	width: 225px;
       	height: 10px;
-      	background: black;
+      	background: #999;
         -ms-transform: rotate(-32deg) skew(12deg,1deg); /* IE 9 */
         -webkit-transform: rotate(-32deg) skew(12deg,1deg); /* Chrome, Safari, Opera */
         transform: rotate(-32deg) skew(12deg,1deg);
@@ -50,6 +58,15 @@
         left: 45.1%;
         top: -200px;
         display: none;
+      }
+      .device-band3 {
+        left: 45.8%;
+      }
+      .device-band4 {
+        left: 46.5%;
+      }
+      .device-band5 {
+        left: 47.2%;
       }
       
       
@@ -64,6 +81,7 @@
         margin-left: -237px;
         margin-top: -116px;
         z-index: 1;
+        color: white;
       }
       .tagline {
         font-size: 20px;
@@ -115,22 +133,47 @@
         var $androidContainer = $('.android-container'),
             $logo = $('.device-logo'),
             $deviceBand1 = $('.device-band1'),
-            $deviceBand2 = $('.device-band2');
+            $deviceBand2 = $('.device-band2'),
+            $deviceBand3 = $('.device-band3'),
+            $deviceBand4 = $('.device-band4'),
+            $deviceBand5 = $('.device-band5');
         
         //Pause before the start of all the animations
         setTimeout(function() {
             $androidContainer.fadeIn(1200, function() {
               $logo.animate({'top': '25%'}, 800, function() {
                 $logo.fadeOut(500, function() {
+                  
+                  
+                  //device band animations (@todo: move out of js & make all of these css transitions)
                   $deviceBand1.fadeIn(100);
-                  $deviceBand2.fadeIn(100, function() {
-                    $deviceBand2.animate({'top': '-310px'}, 800, function() {
-                      $deviceBand2.fadeOut();
-                    });
+                  $deviceBand2.fadeIn(100);
+                  $deviceBand3.fadeIn(100);
+                  $deviceBand4.fadeIn(100);
+                  
+                  $deviceBand5.fadeIn(100, function() {
                     $deviceBand1.animate({'top': '-430px'}, 800, function() {
                       $deviceBand1.fadeOut();
                     });
+                    
+                    $deviceBand2.animate({'top': '-310px'}, 800, function() {
+                      $deviceBand2.fadeOut();
+                    });
+                    
+                    $deviceBand3.animate({'top': '-310px'}, 800, function() {
+                      $deviceBand3.fadeOut();
+                    });
+                    
+                    $deviceBand4.animate({'top': '-310px'}, 800, function() {
+                      $deviceBand4.fadeOut();
+                    });
+                    
+                    $deviceBand5.animate({'top': '-310px'}, 800, function() {
+                      $deviceBand5.fadeOut();
+                    });
+                    
                   });
+                  
                 });      
               });
             });
@@ -140,6 +183,7 @@
   </head>
 
   <body>
+    <div class="overlay"></div>
     <div class="gate-header">
       gate
       <div class="tagline">
@@ -151,6 +195,9 @@
       <img class="device-logo" src="gate_logo_device.png">
       <div class="device-band1"></div>
       <div class="device-band2"></div>
+      <div class="device-band3"></div>
+      <div class="device-band4"></div>
+      <div class="device-band5"></div>
     </div>
     <div class="dl-app-container">
       <img class="dl-android" src="badge_android.png">
