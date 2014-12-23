@@ -25,16 +25,17 @@
         opacity: 0.2;
       }
       .android-device {
-        position: relative;
-        left: 50%;
+        position: absolute;
+        left: 50%;      
+        top: 50%;
         margin-left: -360px;
-        top: 120px;
+        margin-top: 25px;
         width: 50%;
       }
       .device-logo {
         position: absolute;
-        top: 57%;
-        left: 46%;
+        top: 600%;
+        left: 44%;
       }
       .device-band1 {
       	width: 277px;
@@ -43,10 +44,36 @@
         -ms-transform: rotate(-32deg) skew(10deg,4.5deg); /* IE 9 */
         -webkit-transform: rotate(-32deg) skew(10deg,4.5deg); /* Chrome, Safari, Opera */
         transform: rotate(-32deg) skew(10deg,4.5deg);
-        position: relative;
+        position: absolute;
         left: 29%;
-        top: -436px;
+        top: 345%;
 /*        display: none;*/
+      }
+      .device-paragraph {
+      	width: 277px;
+      	height: 310px;
+      	background: black;
+        -ms-transform: rotate(-32deg) skew(10deg,4.5deg); /* IE 9 */
+        -webkit-transform: rotate(-32deg) skew(10deg,4.5deg); /* Chrome, Safari, Opera */
+        transform: rotate(-31deg) skew(13deg,4.5deg);
+        position: absolute;
+        left: 38.6%;
+        top: -465px;
+/*        display: none;*/
+      }
+      .p2 {
+        top: -730px;
+        transform: rotate(-31deg) skew(9deg,4.5deg);
+        width: 100px;
+        height: 309px;
+      }
+      .p3 {
+        background: white;
+        height: 30px;
+        top: -824px;
+        left: 44.8%;
+        transform: rotate(-30deg);
+        width: 300px;
       }
       .device-band2, .device-band3, .device-band4, .device-band5 {
       	width: 300px;
@@ -57,7 +84,7 @@
         transform: rotate(-32deg) skew(12deg,1deg);
         position: relative;
         left: 45.1%;
-        top: -200px;
+        top: 417px;
 /*        display: none;*/
       }
       .device-band3 {
@@ -143,10 +170,10 @@
         //Pause before the start of all the animations
         setTimeout(function() {
             $androidContainer.fadeIn(1200, function() {
-              $logo.animate({'top': '25%'}, 800, function() {
+              $logo.animate({'top': '170%'}, 800, function() {
                 $logo.fadeOut(500, function() {
-                  
-                  
+
+
                   //device band animations (@todo: move out of js & make all of these css transitions)
                   // $deviceBand1.fadeIn(100);
                   // $deviceBand2.fadeIn(100);
@@ -175,8 +202,8 @@
                   //   });
                   //
                   // });
-                  
-                });      
+
+                });
               });
             });
         }, 500);
@@ -196,6 +223,9 @@
       <img class="android-device" src="nexus.png">
       <img class="device-logo" src="gate_logo_device.png">
       <div class="device-band1"></div>
+      <!-- <div class="device-paragraph"></div>
+      <div class="device-paragraph p2"></div>
+      <div class="device-paragraph p3"></div> -->
       <div class="device-band2"></div>
       <div class="device-band3"></div>
       <div class="device-band4"></div>
