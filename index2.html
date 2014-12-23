@@ -22,7 +22,7 @@
       .android-container {
         display: none;
         position: relative;
-        opacity: 0.2;
+        opacity: 0.3;
       }
       .android-device {
         position: absolute;
@@ -49,31 +49,13 @@
         top: 156px;
         display: none;
       }
-      .device-paragraph {
-      	width: 277px;
-      	height: 310px;
-      	background: black;
-        -ms-transform: rotate(-32deg) skew(10deg,4.5deg); /* IE 9 */
-        -webkit-transform: rotate(-32deg) skew(10deg,4.5deg); /* Chrome, Safari, Opera */
-        transform: rotate(-31deg) skew(13deg,4.5deg);
+      .device-blue-cover {
+        width: 500px;
         position: absolute;
-        left: 38.6%;
-        top: -465px;
+        left: 50%;
+        margin-left: -277px;
+        top: 120px;
         display: none;
-      }
-      .p2 {
-        top: -730px;
-        transform: rotate(-31deg) skew(9deg,4.5deg);
-        width: 100px;
-        height: 309px;
-      }
-      .p3 {
-        background: white;
-        height: 30px;
-        top: -824px;
-        left: 44.8%;
-        transform: rotate(-30deg);
-        width: 300px;
       }
       .device-band2, .device-band3, .device-band4, .device-band5 {
       	width: 304px;
@@ -113,7 +95,7 @@
         top: 50%;
         left: 50%;
         margin-left: -237px;
-        margin-top: -116px;
+        margin-top: -125px;
         z-index: 1;
         color: white;
       }
@@ -171,7 +153,8 @@
             $deviceBand2 = $('.device-band2'),
             $deviceBand3 = $('.device-band3'),
             $deviceBand4 = $('.device-band4'),
-            $deviceBand5 = $('.device-band5');
+            $deviceBand5 = $('.device-band5'),
+            $deviceBlueCover = $('.device-blue-cover');
         
         //Pause before the start of all the animations
         setTimeout(function() {
@@ -188,7 +171,7 @@
                     
                     
                     $deviceBand5.fadeIn(100, function() {
-                      $deviceBand1.animate({'top': '0px'}, 800, function() {
+                      $deviceBand1.animate({'top': '0'}, 800, function() {
                         $deviceBand1.fadeOut();
                       });
                       
@@ -207,6 +190,12 @@
 
                         $deviceBand5.animate({'top': '260px'}, 800, function() {
                           $deviceBand5.fadeOut();
+                          
+                          $deviceBlueCover.fadeIn(300, function() {
+                            $deviceBlueCover.animate({'top': '0'}, function() {
+                              $deviceBlueCover.fadeOut();
+                            });
+                          });
                         });
                       }, 300);
 
@@ -234,18 +223,19 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </div>
     </div>
+    
+<!-- ANDROID DEVICE -->
+    <img class="device-blue-cover" src="android_blue_cover.png">
     <div class="android-container">
       <img class="android-device" src="nexus.png">
       <img class="device-logo" src="gate_logo_device.png">
       <div class="device-band1"></div>
-      <!-- <div class="device-paragraph"></div>
-      <div class="device-paragraph p2"></div>
-      <div class="device-paragraph p3"></div> -->
       <div class="device-band2"></div>
       <div class="device-band3"></div>
       <div class="device-band4"></div>
       <div class="device-band5"></div>
     </div>
+    
     <div class="dl-app-container">
       <img class="dl-android" src="badge_android.png">
     </div>
