@@ -49,14 +49,6 @@
         top: 156px;
         display: none;
       }
-      .device-blue-cover {
-        width: 500px;
-        position: absolute;
-        left: 50%;
-        margin-left: -277px;
-        top: 120px;
-        display: none;
-      }
       .device-band2, .device-band3, .device-band4, .device-band5 {
       	width: 304px;
       	height: 10px;
@@ -83,6 +75,26 @@
         left: 47.2%;
         top: 470px;
         width: 305px
+      }
+      /* LARGE COVER ON DEVICE*/
+      .blue-cover-text {
+        position: absolute;
+        transform: rotate(-33deg) skew(12deg,2deg);
+        font-size: 30px;
+        top: 130px;
+        left: 50%;
+        margin-left: -110px;
+        margin-top: 30px;
+        z-index: 1;
+      }
+      .device-blue-cover {
+        width: 500px;
+        position: absolute;
+        left: 50%;
+        margin-left: -277px;
+        top: 120px;
+        display: none;
+        z-index: 1;
       }
       
       
@@ -154,7 +166,8 @@
             $deviceBand3 = $('.device-band3'),
             $deviceBand4 = $('.device-band4'),
             $deviceBand5 = $('.device-band5'),
-            $deviceBlueCover = $('.device-blue-cover');
+            $deviceBlueCover = $('.device-blue-cover'),
+            $blueCoverText = $('.blue-cover-text');
         
         //Pause before the start of all the animations
         setTimeout(function() {
@@ -193,9 +206,14 @@
                           
                           $deviceBlueCover.fadeIn(300, function() {
                             $deviceBlueCover.animate({'top': '0'}, function() {
-                              $deviceBlueCover.fadeOut();
+                              $blueCoverText.text('hello there');
+                              setTimeout(function() {
+                                $deviceBlueCover.animate({'top': '120px'}).fadeOut();
+                                $blueCoverText.animate({'top': '260px'});
+                              }, 300);
                             });
                           });
+                          
                         });
                       }, 300);
 
@@ -225,8 +243,10 @@
     </div>
     
 <!-- ANDROID DEVICE -->
-    <img class="device-blue-cover" src="android_blue_cover.png">
     <div class="android-container">
+      <img class="device-blue-cover" src="android_blue_cover.png">
+      <div class="blue-cover-text"></div>
+      
       <img class="android-device" src="nexus.png">
       <img class="device-logo" src="gate_logo_device.png">
       <div class="device-band1"></div>
