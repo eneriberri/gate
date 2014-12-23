@@ -29,12 +29,12 @@
         left: 50%;      
         top: 50%;
         margin-left: -360px;
-        margin-top: 25px;
-        width: 50%;
+        margin-top: 65px;
+        width: 720px;
       }
       .device-logo {
         position: absolute;
-        top: 600%;
+        top: 220px;
         left: 44%;
       }
       .device-band1 {
@@ -46,8 +46,8 @@
         transform: rotate(-32deg) skew(10deg,4.5deg);
         position: absolute;
         left: 29%;
-        top: 345%;
-/*        display: none;*/
+        top: 156px;
+        display: none;
       }
       .device-paragraph {
       	width: 277px;
@@ -59,7 +59,7 @@
         position: absolute;
         left: 38.6%;
         top: -465px;
-/*        display: none;*/
+        display: none;
       }
       .p2 {
         top: -730px;
@@ -76,25 +76,31 @@
         width: 300px;
       }
       .device-band2, .device-band3, .device-band4, .device-band5 {
-      	width: 300px;
+      	width: 304px;
       	height: 10px;
       	background: black;
         -ms-transform: rotate(-32deg) skew(12deg,1deg); /* IE 9 */
         -webkit-transform: rotate(-32deg) skew(12deg,1deg); /* Chrome, Safari, Opera */
         transform: rotate(-32deg) skew(12deg,1deg);
-        position: relative;
+        position: absolute;
         left: 45.1%;
-        top: 417px;
-/*        display: none;*/
+        top: 437px;
+        display: none;
       }
       .device-band3 {
         left: 45.8%;
+        top: 448px;
+        width: 305px
       }
       .device-band4 {
         left: 46.5%;
+        top: 459px;
+        width: 305px
       }
       .device-band5 {
         left: 47.2%;
+        top: 470px;
+        width: 305px
       }
       
       
@@ -170,38 +176,38 @@
         //Pause before the start of all the animations
         setTimeout(function() {
             $androidContainer.fadeIn(1200, function() {
-              $logo.animate({'top': '170%'}, 800, function() {
+              $logo.animate({'top': '30px'}, 800, function() {
                 $logo.fadeOut(500, function() {
 
 
                   //device band animations (@todo: move out of js & make all of these css transitions)
-                  // $deviceBand1.fadeIn(100);
-                  // $deviceBand2.fadeIn(100);
-                  // $deviceBand3.fadeIn(100);
-                  // $deviceBand4.fadeIn(100);
-                  //
-                  // $deviceBand5.fadeIn(100, function() {
-                  //   $deviceBand1.animate({'top': '-430px'}, 800, function() {
-                  //     $deviceBand1.fadeOut();
-                  //   });
-                  //
-                  //   $deviceBand2.animate({'top': '-310px'}, 800, function() {
-                  //     $deviceBand2.fadeOut();
-                  //   });
-                  //
-                  //   $deviceBand3.animate({'top': '-310px'}, 800, function() {
-                  //     $deviceBand3.fadeOut();
-                  //   });
-                  //
-                  //   $deviceBand4.animate({'top': '-310px'}, 800, function() {
-                  //     $deviceBand4.fadeOut();
-                  //   });
-                  //
-                  //   $deviceBand5.animate({'top': '-310px'}, 800, function() {
-                  //     $deviceBand5.fadeOut();
-                  //   });
-                  //
-                  // });
+                  $deviceBand1.fadeIn(100);
+                  $deviceBand2.fadeIn(100);
+                  $deviceBand3.fadeIn(100);
+                  $deviceBand4.fadeIn(100);
+
+                  $deviceBand5.fadeIn(100, function() {
+                    $deviceBand1.animate({'top': '0px'}, 800, function() {
+                      $deviceBand1.fadeOut();
+                    });
+
+                    $deviceBand2.animate({'top': '210px'}, 800, function() {
+                      $deviceBand2.fadeOut();
+                    });
+
+                    $deviceBand3.animate({'top': '220px'}, 800, function() {
+                      $deviceBand3.fadeOut();
+                    });
+
+                    $deviceBand4.animate({'top': '230px'}, 800, function() {
+                      $deviceBand4.fadeOut();
+                    });
+
+                    $deviceBand5.animate({'top': '240px'}, 800, function() {
+                      $deviceBand5.fadeOut();
+                    });
+
+                  });
 
                 });
               });
