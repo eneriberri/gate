@@ -77,6 +77,15 @@
         width: 305px
       }
       /* LARGE COVER ON DEVICE*/
+      .device-blue-cover {
+        width: 500px;
+        position: absolute;
+        left: 50%;
+        margin-left: -277px;
+        top: 120px;
+        display: none;
+        z-index: 1;
+      }
       .blue-cover-text {
         position: absolute;
         transform: rotate(-33deg) skew(12deg,2deg);
@@ -86,15 +95,7 @@
         margin-left: -110px;
         margin-top: 30px;
         z-index: 1;
-      }
-      .device-blue-cover {
-        width: 500px;
-        position: absolute;
-        left: 50%;
-        margin-left: -277px;
-        top: 120px;
         display: none;
-        z-index: 1;
       }
       
       
@@ -206,11 +207,17 @@
                           
                           $deviceBlueCover.fadeIn(300, function() {
                             $deviceBlueCover.animate({'top': '0'}, function() {
-                              $blueCoverText.text('hello there');
-                              setTimeout(function() {
-                                $deviceBlueCover.animate({'top': '120px'}).fadeOut();
-                                $blueCoverText.animate({'top': '260px'});
-                              }, 300);
+                              $deviceBlueCover.fadeOut();
+                              $blueCoverText.fadeIn(300, function() {
+                                setTimeout(function() {
+                                  $blueCoverText.animate({'top': '260px'});
+                                  setTimeout(function() {
+                                    $blueCoverText.fadeOut(1500);
+                                  }, 1000);
+                                }, 200);
+                                
+                              });
+
                             });
                           });
                           
@@ -245,7 +252,7 @@
 <!-- ANDROID DEVICE -->
     <div class="android-container">
       <img class="device-blue-cover" src="android_blue_cover.png">
-      <div class="blue-cover-text"></div>
+      <div class="blue-cover-text">hello there</div>
       
       <img class="android-device" src="nexus.png">
       <img class="device-logo" src="gate_logo_device.png">
