@@ -12,7 +12,7 @@
       
       .overlay {
         opacity: .9;
-        background-color: black;
+        background-color: #00070a;
         width: 3000px;
         height: 3000px;
         position: fixed;
@@ -40,7 +40,7 @@
       .device-band1 {
       	width: 277px;
       	height: 40px;
-      	background: black;
+      	background: #031019;
         -ms-transform: rotate(-32deg) skew(10deg,4.5deg); /* IE 9 */
         -webkit-transform: rotate(-32deg) skew(10deg,4.5deg); /* Chrome, Safari, Opera */
         transform: rotate(-32deg) skew(10deg,4.5deg);
@@ -52,7 +52,7 @@
       .device-band2, .device-band3, .device-band4, .device-band5 {
       	width: 304px;
       	height: 10px;
-      	background: black;
+      	background: #00070a;
         -ms-transform: rotate(-32deg) skew(12deg,1deg); /* IE 9 */
         -webkit-transform: rotate(-32deg) skew(12deg,1deg); /* Chrome, Safari, Opera */
         transform: rotate(-32deg) skew(12deg,1deg);
@@ -60,6 +60,10 @@
         left: 45.1%;
         top: 437px;
         display: none;
+        transition: all 1.5s ease-in-out;
+         -webkit-transition: all 1.5s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all 1.5s ease-in-out; /** Firefox **/
+         -o-transition: all 1.5s ease-in-out; /** Opera **/
       }
       .device-band3 {
         left: 45.8%;
@@ -98,18 +102,19 @@
         z-index: 1;
         display: none;
         letter-spacing: 20px;
+        text-transform: uppercase;
       }
       
       
 /*GATE HEADER AND TAGLINE*/
       .gate-header {
-        letter-spacing: 35px;
+        letter-spacing: 50px;
         font-size: 135px;
         text-transform: uppercase;
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-left: -237px;
+        margin-left: -257px;
         margin-top: -125px;
         z-index: 1;
         color: white;
@@ -119,15 +124,15 @@
         letter-spacing: 0;
         text-transform: none;
         font-family: 'Meie Script', cursive;
-        margin-left: 10px;
+        margin-left: 30px;
       }
-      .separator {
+/*      .separator {
         background-color: #00BBFF;
         height: 10px;
         width: 100%;
         position: absolute;
-        top: 50%;
-      }
+        bottom: 0;
+      }*/
 
       .gate-tagline {
 /*        margin-top: 30px;*/
@@ -137,7 +142,7 @@
         left: 50%;
         margin-left: -180px;
         width: 300px;
-        background-color: black;
+        background-color: #00070a;
         padding: 30px;
         border-radius: 3px;
         border: 1px solid white;
@@ -188,62 +193,96 @@
 
                   //device band animations (@todo: move out of js & make all of these css transitions)
                   $deviceBand1.fadeIn(100, function() {
-                    $deviceBand2.fadeIn(100);
-                    $deviceBand3.fadeIn(100);
-                    $deviceBand4.fadeIn(100);
+                    $deviceBand2.fadeIn(200);
+                    $deviceBand3.fadeIn(240);
+                    $deviceBand4.fadeIn(280);
                     
                     
-                    $deviceBand5.fadeIn(100, function() {
+                    $deviceBand5.fadeIn(320, function() {
                       $deviceBand1.animate({'top': '0'}, 800, function() {
                         $deviceBand1.fadeOut();
                       });
-                      
-                      setTimeout(function() {
-                        $deviceBand2.animate({'top': '230px'}, 800, function() {
-                          $deviceBand2.fadeOut();
-                        });
-
-                        $deviceBand3.animate({'top': '240px'}, 800, function() {
-                          $deviceBand3.fadeOut();
-                        });
-
-                        $deviceBand4.animate({'top': '250px'}, 800, function() {
-                          $deviceBand4.fadeOut();
-                        });
-
-                        $deviceBand5.animate({'top': '260px'}, 800, function() {
-                          $deviceBand5.fadeOut();
-                          
-                          $deviceBlueCover.fadeIn(300, function() {
-                            $deviceBlueCover.animate({'top': '0'}, function() {
-                              $deviceBlueCover.fadeOut();
-                              $blueCoverText.fadeIn(300, function() {
-                                setTimeout(function() {
-                                  $blueCoverText.animate({'top': '260px'});
-                                  setTimeout(function() {
-                                    $blueCoverText.fadeOut(1000);
-                                  }, 1000);
-                                }, 200);
-                                
-                              });
-
-                            });
-                          });
-                          
-                        });
-                      }, 300);
-
-                      
 
                     });
                   });
-                 
+                  
+                  
+                  setTimeout(function() {
+                    $deviceBand2.animate({'top': '230px'}, 600);
+
+                    $deviceBand3.animate({'top': '240px'}, 600);
+
+                    $deviceBand4.animate({'top': '250px'}, 600);
+
+                    $deviceBand5.animate({'top': '260px'}, 600, function() {
+
+                      $deviceBlueCover.fadeIn(300, function() {
+                        $deviceBlueCover.animate({'top': '0'}, function() {
+                          $deviceBlueCover.fadeOut();
+
+                          $blueCoverText.fadeIn(300, function() {
+                            setTimeout(function() {
+                              $blueCoverText.animate({'top': '260px'});
+                              setTimeout(function() {
+                                $blueCoverText.fadeOut(1000);
+                              }, 800);
+                            }, 200);
+                          });
+
+                        });
+                      });
+
+                    });
+                  }, 350); //ends the first animation cycle
+                  
+                  
+                  //begin 2nd animation cycle 
+                  setTimeout(function() {
+                    $deviceBand1.css({'top': '156px', 'width': '0'});
+                    $deviceBand1.fadeIn(100, function() {
+                      $deviceBand1.animate({'width': '277px'})
+                    });
+                    // .device-band3 {
+                    //   left: 45.8%;
+                    //   top: 448px;
+                    //   width: 305px
+                    // }
+                    // .device-band4 {
+                    //   left: 46.5%;
+                    //   top: 459px;
+                    //   width: 305px
+                    // }
+                    // .device-band5 {
+                    //   left: 47.2%;
+                    //   top: 470px;
+                    //   width: 305px
+                    // }
+                    $deviceBand5.css({'top': '470px'});
+                    $deviceBand5.fadeIn(100, function() {
+                      // $deviceBand5.css({'top': '470px'});
+                      $deviceBand5.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,1deg) scale(.1,1) translate(-1370px,0px)', 'background-color': 'transparent'});
+                    });
+                    $deviceBand4.css({'top': '459px'});
+                    $deviceBand4.fadeIn(100, function() {
+                      $deviceBand4.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,1deg) scale(.1,1) translate(-1370px,0px)', 'background-color': '#00BBFF'});
+                    });
+                    $deviceBand3.css({'top': '448px'});
+                    $deviceBand3.fadeIn(100, function() {
+                      // $deviceBand2.animate({'width': '277px'})
+                    });
+                    $deviceBand2.css({'top': '437px'});
+                    $deviceBand2.fadeIn(100, function() {
+                      // $deviceBand2.animate({'width': '277px'})
+                    });
 
 
 
-                });
-              });
-            });
+                  }, 3000); //ends the second animation cycle
+
+                }); //gate logo fadeOut end
+              }); //gate logo animate up end
+            }); //android container fadeIn end
+            
         }, 500);
       });
     </script>
@@ -261,7 +300,7 @@
     
 <!-- ANDROID DEVICE -->
     <div class="android-container">
-      <img class="device-blue-cover" src="android_blue_cover.png">
+      <img class="device-blue-cover" src="android_gray_cover.png">
       <div class="blue-cover-text">hello</div>
       
       <img class="android-device" src="nexus.png">
