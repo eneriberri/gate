@@ -60,10 +60,10 @@
         left: 45.1%;
         top: 437px;
         display: none;
-        transition: all 1.5s ease-in-out;
-         -webkit-transition: all 1.5s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all 1.5s ease-in-out; /** Firefox **/
-         -o-transition: all 1.5s ease-in-out; /** Opera **/
+        transition: all 1s ease-in-out;
+         -webkit-transition: all 1s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all 1s ease-in-out; /** Firefox **/
+         -o-transition: all 1s ease-in-out; /** Opera **/
       }
       .device-band3 {
         left: 45.8%;
@@ -104,6 +104,38 @@
         letter-spacing: 20px;
         text-transform: uppercase;
       }
+      .device-app-header {
+        position: absolute;
+        transform: rotate(-30deg) skew(12deg,2.5deg);
+        font-size: 13px;
+        top: 130px;
+        left: 50%;
+        margin-left: -275px;
+        margin-top: 36px;
+        z-index: 1;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: white;
+        display: none;
+      }
+      /* ICONS ON DEVICE */
+      .key {
+        position: absolute;
+        left: 50%;
+        top: 250px;
+        z-index: 1;
+        width: 80px;
+        transform: rotate(-31deg);
+        display: none;
+      }
+      .lock {
+        position: absolute;
+        left: 50%;
+        top: 300px;
+        z-index: 1;
+        display: none;
+      }
+      
       
       
 /*GATE HEADER AND TAGLINE*/
@@ -168,7 +200,8 @@
             $deviceBand4 = $('.device-band4'),
             $deviceBand5 = $('.device-band5'),
             $deviceBlueCover = $('.device-blue-cover'),
-            $blueCoverText = $('.blue-cover-text');
+            $blueCoverText = $('.blue-cover-text'),
+            $deviceAppHeader = $('.device-app-header');
         
         //Pause before the start of all the animations
         setTimeout(function() {
@@ -226,7 +259,8 @@
                   setTimeout(function() {
                     $deviceBand1.css({'top': '156px', 'width': '0'});
                     $deviceBand1.fadeIn(100, function() {
-                      $deviceBand1.animate({'width': '277px'})
+                      $deviceBand1.animate({'width': '277px'});
+                      $deviceAppHeader.fadeIn();
                     });
                     // .device-band3 {
                     //   left: 45.8%;
@@ -250,15 +284,22 @@
                     });
                     $deviceBand4.css({'top': '459px'});
                     $deviceBand4.fadeIn(100, function() {
-                      $deviceBand4.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,1deg) scale(.1,1) translate(-1370px,0px)', 'background-color': '#00BBFF'});
+                      $deviceBand4.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,1deg) scale(.1,1) translate(-1370px,0px)', 'background-color': 'transparent'});
                     });
                     $deviceBand3.css({'top': '448px'});
                     $deviceBand3.fadeIn(100, function() {
                       // $deviceBand2.animate({'width': '277px'})
+                      $deviceBand3.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,1deg) scale(.1,1) translate(-1370px,0px)', 'background-color': 'transparent'});
                     });
                     $deviceBand2.css({'top': '437px'});
                     $deviceBand2.fadeIn(100, function() {
                       // $deviceBand2.animate({'width': '277px'})
+                      $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(-154px,-332px)', 'background-color': '#00BBFF'});
+                      
+                      //after band2 finishes animating to the top, have it slide to the right
+                      setTimeout(function() {
+                        $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(187px,-332px)'});
+                      },1500);
                     });
 
 
@@ -286,8 +327,12 @@
     
 <!-- ANDROID DEVICE -->
     <div class="android-container">
+      <img class="key icon" src="key.png">
+      <img class="lock icon" src="lock.png">
+      
       <img class="device-blue-cover" src="android_gray_cover.png">
       <div class="blue-cover-text">hello</div>
+      <div class="device-app-header">feed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gates</div>
       
       <img class="android-device" src="nexus.png">
       <img class="device-logo" src="gate_logo_device.png">
@@ -301,6 +346,8 @@
     <div class="dl-app-container">
       <img class="dl-android" src="badge_android.png">
     </div>
+    
+    
     
     <!-- <footer>
       <div class="more-links">
