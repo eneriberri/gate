@@ -126,7 +126,7 @@
         top: -79px;
         z-index: 1;  
 /*        transform: translate(-100px, 63px);*/
-        transition: all 1s ease-in-out;
+        transition: all .6s ease-in-out;
          -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
          -moz-transition: all .6s ease-in-out; /** Firefox **/
          -o-transition: all .6s ease-in-out; /** Opera **/
@@ -138,6 +138,19 @@
       /**/
       /* LOGIN SCREEN */
       /**/
+      .login-container {
+        position: relative;
+/*        display: none;*/
+        opacity: 0;
+        transition: all .6s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
+        z-index: 1;
+      }
+      .login-container div {
+        position: absolute;
+      }
       .device-login {
         width: 905px;
         position: absolute;
@@ -145,19 +158,6 @@
         margin-left: -461px;
         top: -79px;
         z-index: 1;
-/*        transform: translate(-100px, 63px);*/
-        transition: all 1s ease-in-out;
-         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all .6s ease-in-out; /** Firefox **/
-         -o-transition: all .6s ease-in-out; /** Opera **/
-        opacity: 0.7;
-      }
-      .login-container {
-        position: relative;
-        display: none;
-      }
-      .login-container div {
-        position: absolute;
       }
       .username {
         top: 291px;
@@ -299,7 +299,7 @@
             $deviceAppHeader = $('.device-app-header'),
             $deviceFeedsCover = $('.device-feeds-cover'),
             $deviceEye = $('.device-eye'),
-            $loginContainer = $('login-container');
+            $loginContainer = $('.login-container');
         
         //Pause before the start of all the animations
         setTimeout(function() {
@@ -397,9 +397,6 @@
                         $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(187px,-332px)'});
                         
                         setTimeout(function() {
-                          // $deviceBand1.fadeOut();
-                          // $deviceBand2.fadeOut();
-                          // $deviceAppHeader.fadeOut();
                           $deviceFeedsCover.fadeOut(300, function() {
                             $deviceEye.fadeIn().css({'-webkit-transform': 'translate(0px, -120px)'});
                           });
@@ -412,6 +409,9 @@
                             $deviceBand2.css({'opacity': '0'});
                             $deviceAppHeader.fadeOut();
                             $deviceEye.css({'opacity': '0'});
+                            setTimeout(function() {
+                              $loginContainer.css({'opacity': '0.7'});
+                            }, 300);
                             
                           }, 900);
                           
