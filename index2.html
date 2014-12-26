@@ -47,6 +47,7 @@
         position: absolute;
         left: 29%;
         top: 156px;
+        z-index: 2;
         display: none;
       }
       .device-band2, .device-band3, .device-band4, .device-band5 {
@@ -64,6 +65,7 @@
          -webkit-transition: all 1s ease-in-out; /** Chrome & Safari **/
          -moz-transition: all 1s ease-in-out; /** Firefox **/
          -o-transition: all 1s ease-in-out; /** Opera **/
+         z-index: 2;
       }
       .device-band3 {
         left: 45.8%;
@@ -81,15 +83,35 @@
         width: 305px
       }
       /* LARGE COVER ON DEVICE*/
-      .device-blue-cover {
+      .device-gray-cover {
         width: 500px;
         position: absolute;
         left: 50%;
         margin-left: -277px;
         top: 120px;
-        display: none;
         z-index: 1;
         opacity: 0.5;
+        display: none;
+      }
+      .device-blue-cards {
+        width: 500px;
+        position: absolute;
+        left: 50%;
+        margin-left: -277px;
+        top: 120px;
+        z-index: 1;
+        display: none;
+/*        opacity: 0.5;*/
+      }
+      .device-feeds-cover {
+        width: 905px;
+        position: absolute;
+        left: 50%;
+        margin-left: -461px;
+        top: -79px;
+        z-index: 1;
+/*        display: none;*/
+/*        opacity: 0.5;*/
       }
       .blue-cover-text {
         position: absolute;
@@ -112,7 +134,7 @@
         left: 50%;
         margin-left: -275px;
         margin-top: 36px;
-        z-index: 1;
+        z-index: 3;
         letter-spacing: 5px;
         text-transform: uppercase;
         color: white;
@@ -199,7 +221,7 @@
             $deviceBand3 = $('.device-band3'),
             $deviceBand4 = $('.device-band4'),
             $deviceBand5 = $('.device-band5'),
-            $deviceBlueCover = $('.device-blue-cover'),
+            $deviceBlueCover = $('.device-gray-cover'),
             $blueCoverText = $('.blue-cover-text'),
             $deviceAppHeader = $('.device-app-header');
         
@@ -299,6 +321,14 @@
                       //after band2 finishes animating to the top, have it slide to the right
                       setTimeout(function() {
                         $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(187px,-332px)'});
+                        
+                        setTimeout(function() {
+                          // $deviceBand1.fadeOut();
+                          // $deviceBand2.fadeOut();
+                          // $deviceAppHeader.fadeOut();
+                        }, 1300);
+                        
+                        
                       },1500);
                     });
 
@@ -330,7 +360,9 @@
       <img class="key icon" src="key.png">
       <img class="lock icon" src="lock.png">
       
-      <img class="device-blue-cover" src="android_gray_cover.png">
+      <img class="device-gray-cover" src="android_gray_cover.png">
+      <img class="device-blue-cards" src="android_blue_cards.png">
+      <img class="device-feeds-cover" src="android_feeds_cover.png">
       <div class="blue-cover-text">hello</div>
       <div class="device-app-header">feed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gates</div>
       
