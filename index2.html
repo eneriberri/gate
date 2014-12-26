@@ -61,10 +61,10 @@
         left: 45.1%;
         top: 437px;
         display: none;
-        transition: all 1s ease-in-out;
-         -webkit-transition: all 1s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all 1s ease-in-out; /** Firefox **/
-         -o-transition: all 1s ease-in-out; /** Opera **/
+        transition: all .7s ease-in-out;
+         -webkit-transition: all .7s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .7s ease-in-out; /** Firefox **/
+         -o-transition: all .7s ease-in-out; /** Opera **/
          z-index: 2;
       }
       .device-band3 {
@@ -110,8 +110,28 @@
         margin-left: -461px;
         top: -79px;
         z-index: 1;
-/*        display: none;*/
-/*        opacity: 0.5;*/
+        display: none;
+        transform: translate(-100px, 63px);
+        transition: all 1s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
+        opacity: 0.7;
+      }
+      .device-eye {
+        width: 905px;
+        position: absolute;
+        left: 50%;
+        margin-left: -461px;
+        top: -79px;
+        z-index: 1;
+        display: none;
+/*        transform: translate(-100px, 63px);*/
+        transition: all 1s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
+        opacity: 0.7;
       }
       .blue-cover-text {
         position: absolute;
@@ -223,7 +243,9 @@
             $deviceBand5 = $('.device-band5'),
             $deviceBlueCover = $('.device-gray-cover'),
             $blueCoverText = $('.blue-cover-text'),
-            $deviceAppHeader = $('.device-app-header');
+            $deviceAppHeader = $('.device-app-header'),
+            $deviceFeedsCover = $('.device-feeds-cover'),
+            $deviceEye = $('.device-eye');
         
         //Pause before the start of all the animations
         setTimeout(function() {
@@ -301,7 +323,6 @@
                     // }
                     $deviceBand5.css({'top': '470px'});
                     $deviceBand5.fadeIn(100, function() {
-                      // $deviceBand5.css({'top': '470px'});
                       $deviceBand5.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,1deg) scale(.1,1) translate(-1370px,0px)', 'background-color': 'transparent'});
                     });
                     $deviceBand4.css({'top': '459px'});
@@ -310,26 +331,29 @@
                     });
                     $deviceBand3.css({'top': '448px'});
                     $deviceBand3.fadeIn(100, function() {
-                      // $deviceBand2.animate({'width': '277px'})
                       $deviceBand3.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,1deg) scale(.1,1) translate(-1370px,0px)', 'background-color': 'transparent'});
                     });
                     $deviceBand2.css({'top': '437px'});
                     $deviceBand2.fadeIn(100, function() {
-                      // $deviceBand2.animate({'width': '277px'})
                       $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(-154px,-332px)', 'background-color': '#00BBFF'});
                       
                       //after band2 finishes animating to the top, have it slide to the right
                       setTimeout(function() {
+                        $deviceFeedsCover.fadeIn().css({'-webkit-transform': 'translate(0px, 0px)', 'opacity': '1'});
                         $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(187px,-332px)'});
                         
                         setTimeout(function() {
                           // $deviceBand1.fadeOut();
                           // $deviceBand2.fadeOut();
                           // $deviceAppHeader.fadeOut();
-                        }, 1300);
+                          $deviceFeedsCover.fadeOut(300, function() {
+                            $deviceEye.fadeIn().css({'-webkit-transform': 'translate(0px, -120px)'});
+                          });
+                          
+                        }, 900);
                         
                         
-                      },1500);
+                      },1000);
                     });
 
 
@@ -363,6 +387,7 @@
       <img class="device-gray-cover" src="android_gray_cover.png">
       <img class="device-blue-cards" src="android_blue_cards.png">
       <img class="device-feeds-cover" src="android_feeds_cover.png">
+      <img class="device-eye" src="android_eye.png">
       <div class="blue-cover-text">hello</div>
       <div class="device-app-header">feed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gates</div>
       
