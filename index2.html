@@ -141,7 +141,6 @@
       .login-container {
         position: relative;
         display: none;
-/*        opacity: 0;*/
         z-index: 1;
       }
       .login-container div {
@@ -226,6 +225,65 @@
         font-size: 11px;
         transform: rotate(-32deg) skew(16.5deg,0deg);
         color: #0B9AD2;
+        transition: all .6s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
+      }
+      
+      
+      /*
+      *
+      * Profile Screen
+      *
+      */      
+      .profile-container {
+        position: relative;
+/*        display: none;*/
+        z-index: 1;
+      }
+      .profile-container div {
+        position: absolute;
+      }
+      .device-profile {
+        width: 905px;
+        position: absolute;
+        left: 50%;
+        margin-left: -461px;
+        top: -79px;
+        z-index: 1;
+        opacity: 0;
+        transition: all .6s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
+      }
+      .location {
+        top: 370px;
+        left: 50%;
+        margin-left: -99px;
+        z-index: 1;
+        letter-spacing: 1px;
+        font-size: 11px;
+        transform: rotate(-30.5deg) skew(15deg,0deg);
+        color: #a0a5aa;
+        opacity: 0;
+        transition: all .6s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
+      }
+      .about {
+        top: 353px;
+        left: 50%;
+        margin-left: -69px;
+        z-index: 1;
+        font-size: 11px;
+        transform: rotate(-25.2deg) skew(15deg,-5.5deg);
+        color: #a0a5aa;
+        width: 19%;
+        line-height: 25px;
+        opacity: 0;
         transition: all .6s ease-in-out;
          -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
          -moz-transition: all .6s ease-in-out; /** Firefox **/
@@ -335,7 +393,10 @@
             $loginBtnText = $('.login-btn-text'),
             $loginFields = $('.device-login-fields'),
             $loginBtn = $('.device-login-btn'),
-            $loginForgotPw = $('.forgot-pw');
+            $loginForgotPw = $('.forgot-pw'),
+            $profile = $('.device-profile'),
+            $profileLoc = $('.location'),
+            $profileAbout = $('.about');
         
         // setInterval(function() {
           
@@ -463,7 +524,7 @@
                                     setTimeout(function() {                                   
                                       $loginBtn.css({'-webkit-transform': 'translate(120px, -220px)', 'opacity': '0'});
                                       $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(245px, -131px)', 'opacity': '0'});
-                                    }, 200); //fade out last remaining login elements
+                                    }, 400); //fade out last remaining login elements
                                     
                                   }, 500);
                                 }, 700); //ends login btn and fields fade up
@@ -483,6 +544,15 @@
 
 
                   }, 3000); //ends the second animation cycle
+                  
+                  
+                  //begin profile animation
+                  setTimeout(function() {
+                    console.log('test');
+                    $profile.css({'opacity': '0.8'});
+                    $profileLoc.css({'opacity': '0.8'});
+                    $profileAbout.css({'opacity': '0.8'});
+                  }, 9000);
 
                 }); //gate logo fadeOut end
               }); //gate logo animate up end
@@ -511,8 +581,9 @@
       <img class="device-blue-cards" src="android_blue_cards.png">
       <img class="device-feeds-cover" src="android_feeds_cover.png">
       <img class="device-eye" src="android_eye.png">
+      
+      <!--Login Screen -->
       <div class="login-container">
-        <!-- <img class="device-login" src="android_login.png"> -->
         <img class="device-login-fields" src="android_login_fields.png">
         <img class="device-login-btn" src="android_login_btn.png">
         <div class="username">
@@ -528,6 +599,18 @@
           Forgot your password?
         </div>
       </div>
+      
+      <!--Profile Screen -->
+      <div class="profile-container">
+        <img class="device-profile" src="android_profile_screen.png">
+        <div class="location">
+          San Fransokyo, CA
+        </div>
+        <div class="about">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis euismod nulla vel dapibus. Aenean ac metus ut erat gravida cursus vel eu est. Pellentesque ac nisl sit amet mauris varius fermentum eget in nisi. Vestibulum ante ipsum primis in faucibus orci luctus
+        </div>
+      </div>
+      
       <div class="blue-cover-text">hello</div>
       <div class="device-app-header">feed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gates</div>
       
