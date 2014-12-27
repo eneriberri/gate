@@ -258,6 +258,45 @@
          -moz-transition: all .6s ease-in-out; /** Firefox **/
          -o-transition: all .6s ease-in-out; /** Opera **/
       }
+      .device-profile-top {
+        width: 905px;
+        position: absolute;
+        left: 50%;
+        margin-left: -461px;
+        top: -79px;
+        z-index: 1;
+        opacity: 0;
+        transition: all .6s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
+      }
+      .device-profile-pin {
+        width: 905px;
+        position: absolute;
+        left: 50%;
+        margin-left: -461px;
+        top: -79px;
+        z-index: 1;
+        opacity: 0;
+        transition: all .6s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
+      }
+      .device-profile-bottom {
+        width: 905px;
+        position: absolute;
+        left: 50%;
+        margin-left: -461px;
+        top: -79px;
+        z-index: 1;
+        opacity: 0;
+        transition: all .6s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
+      }
       .location {
         top: 370px;
         left: 50%;
@@ -396,7 +435,10 @@
             $loginForgotPw = $('.forgot-pw'),
             $profile = $('.device-profile'),
             $profileLoc = $('.location'),
-            $profileAbout = $('.about');
+            $profileAbout = $('.about'),
+            $profileTop = $('.device-profile-top'),
+            $profilePin = $('.device-profile-pin'),
+            $profileBottom = $('.device-profile-bottom');
         
         // setInterval(function() {
           
@@ -548,10 +590,47 @@
                   
                   //begin profile animation
                   setTimeout(function() {
-                    console.log('test');
-                    $profile.css({'opacity': '0.8'});
+                    // $profile.css({'opacity': '0.8'});
                     $profileLoc.css({'opacity': '0.8'});
                     $profileAbout.css({'opacity': '0.8'});
+                    $profileTop.css({'opacity': '0.8'});
+                    $profileBottom.css({'opacity': '0.8'});
+                    $profilePin.css({'opacity': '0.8'});
+                    
+                    //begin profile moving up and fade out
+                    setTimeout(function() {
+                      $profileTop.css({'-webkit-transform': 'translate(0px, -120px)'});
+                      setTimeout(function() {
+                        $profileTop.css({'opacity': '0'});
+                      }, 300);
+                    }, 1000);
+                    
+                    //begin profile moving up
+                    setTimeout(function() {
+                      $profilePin.css({'-webkit-transform': 'translate(-36px, -170px)'});
+                      $profileLoc.css({'-webkit-transform': 'rotate(-30.5deg) skew(15deg,0deg) translate(102px, -162px)'});
+                      setTimeout(function() {
+                        $profilePin.css({'opacity': '0'});
+                        $profileLoc.css({'opacity': '0'});
+                      }, 300);
+                    }, 1800);
+                    
+                    //begin profile moving up
+                    setTimeout(function() {
+                      $profileAbout.css({'-webkit-transform': 'rotate(-25.2deg) skew(15deg,-5.5deg) translate(73px, -160px)'});
+                      setTimeout(function() {
+                        $profileAbout.css({'opacity': '0'});
+                      }, 300);
+                    }, 2500);
+                    
+                    //begin profile moving up and fade out
+                    setTimeout(function() {
+                      $profileBottom.css({'-webkit-transform': 'translate(0px, -120px)'});
+                      setTimeout(function() {
+                        $profileBottom.css({'opacity': '0'});
+                      }, 300);
+                    }, 2000);
+                    
                   }, 9000);
 
                 }); //gate logo fadeOut end
@@ -603,6 +682,9 @@
       <!--Profile Screen -->
       <div class="profile-container">
         <img class="device-profile" src="android_profile_screen.png">
+        <img class="device-profile-top" src="android_profile_top.png">
+        <img class="device-profile-pin" src="android_profile_pin.png">
+        <img class="device-profile-bottom" src="android_profile_bottom.png">
         <div class="location">
           San Fransokyo, CA
         </div>
