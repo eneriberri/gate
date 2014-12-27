@@ -140,12 +140,8 @@
       /**/
       .login-container {
         position: relative;
-/*        display: none;*/
-        opacity: 0;
-        transition: all .6s ease-in-out;
-         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all .6s ease-in-out; /** Firefox **/
-         -o-transition: all .6s ease-in-out; /** Opera **/
+        display: none;
+/*        opacity: 0;*/
         z-index: 1;
       }
       .login-container div {
@@ -158,6 +154,37 @@
         margin-left: -461px;
         top: -79px;
         z-index: 1;
+        opacity: 0;
+        transition: all .6s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
+      }
+      .device-login-fields {
+        width: 905px;
+        position: absolute;
+        left: 50%;
+        margin-left: -461px;
+        top: -79px;
+        z-index: 1;
+        opacity: 0;
+        transition: all .6s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
+      }
+      .device-login-btn {
+        width: 905px;
+        position: absolute;
+        left: 50%;
+        margin-left: -461px;
+        top: -79px;
+        z-index: 1;
+        opacity: 0;
+        transition: all .6s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
       }
       .username {
         top: 291px;
@@ -169,6 +196,10 @@
         font-size: 18px;
         transform: rotate(-29deg) skew(15deg,0deg);
         color: #00070a;
+        transition: all .6s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
       }
       .password {
         top: 328px;
@@ -180,6 +211,10 @@
         font-size: 18px;
         transform: rotate(-29deg) skew(15deg,0deg);
         color: #b1b3b5;
+        transition: all .6s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
       }
       .login-btn-text {
         top: 349px;
@@ -191,6 +226,10 @@
         font-size: 16px;
         transform: rotate(-30deg) skew(16deg,0deg);
         color: #00070a;
+        transition: all .6s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
       }
       .forgot-pw {
         top: 374px;
@@ -299,8 +338,19 @@
             $deviceAppHeader = $('.device-app-header'),
             $deviceFeedsCover = $('.device-feeds-cover'),
             $deviceEye = $('.device-eye'),
-            $loginContainer = $('.login-container');
+            $loginContainer = $('.login-container'),
+            $loginUsername = $('.username'),
+            $loginPassword = $('.password'),
+            $loginBtnText = $('.login-btn-text'),
+            $loginForm = $('.device-login'),
+            $loginFields = $('.device-login-fields'),
+            $loginBtn = $('.device-login-btn');
         
+        // setInterval(function() {
+          
+        
+              
+            
         //Pause before the start of all the animations
         setTimeout(function() {
             $androidContainer.fadeIn(1200, function() {
@@ -360,21 +410,6 @@
                       $deviceBand1.animate({'width': '277px'});
                       $deviceAppHeader.fadeIn();
                     });
-                    // .device-band3 {
-                    //   left: 45.8%;
-                    //   top: 448px;
-                    //   width: 305px
-                    // }
-                    // .device-band4 {
-                    //   left: 46.5%;
-                    //   top: 459px;
-                    //   width: 305px
-                    // }
-                    // .device-band5 {
-                    //   left: 47.2%;
-                    //   top: 470px;
-                    //   width: 305px
-                    // }
                     $deviceBand5.css({'top': '470px'});
                     $deviceBand5.fadeIn(100, function() {
                       $deviceBand5.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,1deg) scale(.1,1) translate(-1370px,0px)', 'background-color': 'transparent'});
@@ -409,8 +444,29 @@
                             $deviceBand2.css({'opacity': '0'});
                             $deviceAppHeader.fadeOut();
                             $deviceEye.css({'opacity': '0'});
+                            
+                            //Login Screen
                             setTimeout(function() {
-                              $loginContainer.css({'opacity': '0.7'});
+                              $loginContainer.fadeIn();
+                              $loginFields.css({'opacity': '0.7'});
+                              $loginBtn.css({'opacity': '0.7'});
+                              $loginForm.css({'opacity': '0.7'});
+                              
+                              //Fade out the form and start moving around the input fields and login btn
+                              setTimeout(function() {
+                                $loginForm.css({'opacity': '0'});
+                                $loginFields.css({'-webkit-transform': 'translate(0px, -120px)'});
+                                $loginUsername.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
+                                $loginPassword.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
+                                //fade up the login btn and text up after a pause
+                                setTimeout(function() {
+                                  $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
+                                  $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
+                                  $loginUsername.css({'opacity': 0});
+                                  $loginPassword.css({'opacity': 0});
+                                  $loginFields.css({'opacity': 0});
+                                }, 700);     
+                              }, 1000);
                             }, 300);
                             
                           }, 900);
@@ -429,7 +485,8 @@
               }); //gate logo animate up end
             }); //android container fadeIn end
             
-        }, 500);
+        }, 500); //parent setTimeout
+      // }, 12000);
       });
     </script>
   </head>
@@ -453,6 +510,8 @@
       <img class="device-eye" src="android_eye.png">
       <div class="login-container">
         <img class="device-login" src="android_login.png">
+        <img class="device-login-fields" src="android_login_fields.png">
+        <img class="device-login-btn" src="android_login_btn.png">
         <div class="username">
           mango_cat
         </div>
