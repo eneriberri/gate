@@ -50,7 +50,7 @@
         z-index: 2;
         display: none;
       }
-      .device-band2, .device-band3, .device-band4, .device-band5 {
+      .device-band2 {
       	width: 304px;
       	height: 10px;
       	background: #00070a;
@@ -66,21 +66,6 @@
          -moz-transition: all .7s ease-in-out; /** Firefox **/
          -o-transition: all .7s ease-in-out; /** Opera **/
          z-index: 2;
-      }
-      .device-band3 {
-        left: 45.8%;
-        top: 448px;
-        width: 305px
-      }
-      .device-band4 {
-        left: 46.5%;
-        top: 459px;
-        width: 305px
-      }
-      .device-band5 {
-        left: 47.2%;
-        top: 470px;
-        width: 305px
       }
       
       
@@ -374,9 +359,6 @@
             $logo = $('.device-logo'),
             $deviceBand1 = $('.device-band1'),
             $deviceBand2 = $('.device-band2'),
-            $deviceBand3 = $('.device-band3'),
-            $deviceBand4 = $('.device-band4'),
-            $deviceBand5 = $('.device-band5'),
             $deviceAppHeader = $('.device-app-header'),
             $loginContainer = $('.login-container'),
             $loginUsername = $('.username'),
@@ -408,41 +390,40 @@
               $logo.animate({'top': '90px'}, 700, function() {
                 $logo.fadeOut(500, function() {
 
-                  //Login Screen
+                  //**
+                  //* Login Screen Animations
+                  //**
+                  $loginContainer.fadeIn();
+                  $loginFields.css({'opacity': '0.7'});
+                  $loginBtn.css({'opacity': '0.7'});
+                  
+                  //Fade out the form and start moving around the input fields and login btn
                   setTimeout(function() {
-                    $loginContainer.fadeIn();
-                    $loginFields.css({'opacity': '0.7'});
-                    $loginBtn.css({'opacity': '0.7'});
-                    
-                    //Fade out the form and start moving around the input fields and login btn
+                    $loginFields.css({'-webkit-transform': 'translate(0px, -120px)'});
+                    $loginUsername.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
+                    $loginPassword.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
+                    //fade up the login btn and text up after a pause
                     setTimeout(function() {
-                      $loginFields.css({'-webkit-transform': 'translate(0px, -120px)'});
-                      $loginUsername.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
-                      $loginPassword.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
-                      //fade up the login btn and text up after a pause
+                      $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
+                      $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
+                      $loginUsername.css({'opacity': '0'});
+                      $loginPassword.css({'opacity': '0'});
+                      $loginFields.css({'opacity': '0'});
+                      
                       setTimeout(function() {
                         $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
                         $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
-                        $loginUsername.css({'opacity': '0'});
-                        $loginPassword.css({'opacity': '0'});
-                        $loginFields.css({'opacity': '0'});
+                        $loginForgotPw.css({'-webkit-transform': 'rotate(-32deg) skew(16.5deg,0deg) translate(150px, 0px)', 'color': 'transparent'});
                         
-                        setTimeout(function() {
-                          $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
-                          $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
-                          $loginForgotPw.css({'-webkit-transform': 'rotate(-32deg) skew(16.5deg,0deg) translate(150px, 0px)', 'color': 'transparent'});
-                          
-                          setTimeout(function() {                                   
-                            $loginBtn.css({'-webkit-transform': 'translate(120px, -220px)', 'opacity': '0'});
-                            $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(245px, -131px)', 'opacity': '0'});
-                          }, 400); //fade out last remaining login elements
-                          
-                        }, 500);
-                      }, 700); //ends login btn and fields fade up
-                           
-                    }, 1000);
-                    
-                  }, 300); //ends login screen animations
+                        setTimeout(function() {                                   
+                          $loginBtn.css({'-webkit-transform': 'translate(120px, -220px)', 'opacity': '0'});
+                          $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(245px, -131px)', 'opacity': '0'});
+                        }, 400); //fade out last remaining login elements
+                        
+                      }, 500);
+                    }, 700); //ends login btn and fields fade up
+                         
+                  }, 1000); //end login screen animations
                   
                   
                   
@@ -450,26 +431,14 @@
                     //device band animations
                     $deviceBand1.fadeIn(100, function() {
                       $deviceBand2.fadeIn(200);
-                      $deviceBand3.fadeIn(240);
-                      $deviceBand4.fadeIn(280);
                     
-                    
-                      $deviceBand5.fadeIn(320, function() {
-                        $deviceBand1.animate({'top': '0'}, 800, function() {
-                          $deviceBand1.fadeOut();
-                        });
-
+                      $deviceBand1.animate({'top': '0'}, 800, function() {
+                        $deviceBand1.fadeOut();
                       });
                     });
                     
                     setTimeout(function() {
                       $deviceBand2.animate({'top': '230px'}, 600);
-
-                      $deviceBand3.animate({'top': '240px'}, 600);
-
-                      $deviceBand4.animate({'top': '250px'}, 600);
-
-                      $deviceBand5.animate({'top': '260px'}, 600);
                     }, 350); 
                   }, 3000); //ends the first animation cycle
 
@@ -485,18 +454,7 @@
                       $deviceBand1.animate({'width': '277px'});
                       $deviceAppHeader.fadeIn();
                     });
-                    $deviceBand5.css({'top': '470px'});
-                    $deviceBand5.fadeIn(100, function() {
-                      $deviceBand5.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,1deg) scale(.1,1) translate(-1370px,0px)', 'background-color': 'transparent'});
-                    });
-                    $deviceBand4.css({'top': '459px'});
-                    $deviceBand4.fadeIn(100, function() {
-                      $deviceBand4.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,1deg) scale(.1,1) translate(-1370px,0px)', 'background-color': 'transparent'});
-                    });
-                    $deviceBand3.css({'top': '448px'});
-                    $deviceBand3.fadeIn(100, function() {
-                      $deviceBand3.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,1deg) scale(.1,1) translate(-1370px,0px)', 'background-color': 'transparent'});
-                    });
+                    
                     $deviceBand2.css({'top': '437px'});
                     $deviceBand2.fadeIn(100, function() {
                       $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(-154px,-332px)', 'background-color': '#00BBFF'});
@@ -638,9 +596,6 @@
       <img class="device-logo" src="gate_logo_device.png">
       <div class="device-band1"></div>
       <div class="device-band2"></div>
-      <div class="device-band3"></div>
-      <div class="device-band4"></div>
-      <div class="device-band5"></div>
     </div>
     
     <div class="dl-app-container">
