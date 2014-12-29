@@ -398,37 +398,84 @@
               
             
         //Pause before the start of all the animations
+        //1. Fade in Android device
+        //2. Fade in logo
+        //3. Transition up logo then fade it out
+        //4. Fade in login screen
+        //5. Transition up the login screen's components then fade them out
         setTimeout(function() {
             $androidContainer.fadeIn(1200, function() {
-              $logo.animate({'top': '30px'}, 800, function() {
+              $logo.animate({'top': '90px'}, 700, function() {
                 $logo.fadeOut(500, function() {
 
-
-                  //device band animations (@todo: move out of js & make all of these css transitions)
-                  $deviceBand1.fadeIn(100, function() {
-                    $deviceBand2.fadeIn(200);
-                    $deviceBand3.fadeIn(240);
-                    $deviceBand4.fadeIn(280);
+                  //Login Screen
+                  setTimeout(function() {
+                    $loginContainer.fadeIn();
+                    $loginFields.css({'opacity': '0.7'});
+                    $loginBtn.css({'opacity': '0.7'});
                     
+                    //Fade out the form and start moving around the input fields and login btn
+                    setTimeout(function() {
+                      $loginFields.css({'-webkit-transform': 'translate(0px, -120px)'});
+                      $loginUsername.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
+                      $loginPassword.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
+                      //fade up the login btn and text up after a pause
+                      setTimeout(function() {
+                        $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
+                        $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
+                        $loginUsername.css({'opacity': '0'});
+                        $loginPassword.css({'opacity': '0'});
+                        $loginFields.css({'opacity': '0'});
+                        
+                        setTimeout(function() {
+                          $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
+                          $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
+                          $loginForgotPw.css({'-webkit-transform': 'rotate(-32deg) skew(16.5deg,0deg) translate(150px, 0px)', 'color': 'transparent'});
+                          
+                          setTimeout(function() {                                   
+                            $loginBtn.css({'-webkit-transform': 'translate(120px, -220px)', 'opacity': '0'});
+                            $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(245px, -131px)', 'opacity': '0'});
+                          }, 400); //fade out last remaining login elements
+                          
+                        }, 500);
+                      }, 700); //ends login btn and fields fade up
+                           
+                    }, 1000);
                     
-                    $deviceBand5.fadeIn(320, function() {
-                      $deviceBand1.animate({'top': '0'}, 800, function() {
-                        $deviceBand1.fadeOut();
-                      });
-
-                    });
-                  });
+                  }, 300); //ends login screen animations
+                  
                   
                   
                   setTimeout(function() {
-                    $deviceBand2.animate({'top': '230px'}, 600);
+                    //device band animations
+                    $deviceBand1.fadeIn(100, function() {
+                      $deviceBand2.fadeIn(200);
+                      $deviceBand3.fadeIn(240);
+                      $deviceBand4.fadeIn(280);
+                    
+                    
+                      $deviceBand5.fadeIn(320, function() {
+                        $deviceBand1.animate({'top': '0'}, 800, function() {
+                          $deviceBand1.fadeOut();
+                        });
 
-                    $deviceBand3.animate({'top': '240px'}, 600);
+                      });
+                    });
+                    
+                    setTimeout(function() {
+                      $deviceBand2.animate({'top': '230px'}, 600);
 
-                    $deviceBand4.animate({'top': '250px'}, 600);
+                      $deviceBand3.animate({'top': '240px'}, 600);
 
-                    $deviceBand5.animate({'top': '260px'}, 600);
-                  }, 350); //ends the first animation cycle
+                      $deviceBand4.animate({'top': '250px'}, 600);
+
+                      $deviceBand5.animate({'top': '260px'}, 600);
+                    }, 350); 
+                  }, 3000); //ends the first animation cycle
+
+                  
+                  
+
                   
                   
                   //begin 2nd animation cycle 
@@ -468,42 +515,6 @@
                             $deviceBand2.css({'opacity': '0'});
                             $deviceAppHeader.fadeOut();
                             
-                            //Login Screen
-                            setTimeout(function() {
-                              $loginContainer.fadeIn();
-                              $loginFields.css({'opacity': '0.7'});
-                              $loginBtn.css({'opacity': '0.7'});
-                              
-                              //Fade out the form and start moving around the input fields and login btn
-                              setTimeout(function() {
-                                $loginFields.css({'-webkit-transform': 'translate(0px, -120px)'});
-                                $loginUsername.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
-                                $loginPassword.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
-                                //fade up the login btn and text up after a pause
-                                setTimeout(function() {
-                                  $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
-                                  $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
-                                  $loginUsername.css({'opacity': '0'});
-                                  $loginPassword.css({'opacity': '0'});
-                                  $loginFields.css({'opacity': '0'});
-                                  
-                                  setTimeout(function() {
-                                    $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
-                                    $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
-                                    $loginForgotPw.css({'-webkit-transform': 'rotate(-32deg) skew(16.5deg,0deg) translate(150px, 0px)', 'color': 'transparent'});
-                                    
-                                    setTimeout(function() {                                   
-                                      $loginBtn.css({'-webkit-transform': 'translate(120px, -220px)', 'opacity': '0'});
-                                      $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(245px, -131px)', 'opacity': '0'});
-                                    }, 400); //fade out last remaining login elements
-                                    
-                                  }, 500);
-                                }, 700); //ends login btn and fields fade up
-                                     
-                              }, 1000);
-                              
-                            }, 300); //ends login screen animations
-                            
                           }, 900);
                           
                         }, 900);
@@ -514,7 +525,7 @@
 
 
 
-                  }, 3000); //ends the second animation cycle
+                  }, 5500); //ends the second animation cycle
                   
                   
                   //begin profile animation
