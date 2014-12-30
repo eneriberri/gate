@@ -178,19 +178,6 @@
       .profile-container div {
         position: absolute;
       }
-      .device-profile {
-        width: 905px;
-        position: absolute;
-        left: 50%;
-        margin-left: -461px;
-        top: -79px;
-        z-index: 1;
-        opacity: 0;
-        transition: all .6s ease-in-out;
-         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all .6s ease-in-out; /** Firefox **/
-         -o-transition: all .6s ease-in-out; /** Opera **/
-      }
       .device-profile-top {
         width: 905px;
         position: absolute;
@@ -266,21 +253,31 @@
         position: relative;
         z-index: 1;
       }
-      .feeds-screen div {
-        position: absolute;
-      }
-      .feeds-screen {
+      .feeds-container img {
         width: 905px;
         position: absolute;
         left: 50%;
         margin-left: -461px;
         top: -79px;
-        z-index: 1;
-        opacity: 0;
         transition: all .6s ease-in-out;
          -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
          -moz-transition: all .6s ease-in-out; /** Firefox **/
          -o-transition: all .6s ease-in-out; /** Opera **/
+      }
+      .feeds-screen div {
+        position: absolute;
+      }
+      .feeds-screen {
+        z-index: 1;
+        opacity: 1;
+      }
+      .feeds-counter {
+        z-index: 2;
+        opacity: 0;
+      }
+      .feeds-like {
+        z-index: 2;
+        opacity: 0;
       }
       
       
@@ -354,13 +351,14 @@
             $loginFields = $('.device-login-fields'),
             $loginBtn = $('.device-login-btn'),
             $loginForgotPw = $('.forgot-pw'),
-            $profile = $('.device-profile'),
             $profileLoc = $('.location'),
             $profileAbout = $('.about'),
             $profileTop = $('.device-profile-top'),
             $profilePin = $('.device-profile-pin'),
-            $profileBottom = $('.device-profile-bottom');
-        
+            $profileBottom = $('.device-profile-bottom'),
+            $feedsScreen = $('.feeds-screen'),
+            $feedsLike = $('.feeds-like'),
+            $feedsCounter = $('.feeds-counter');
         // setInterval(function() {
           
         
@@ -475,7 +473,6 @@
                   
                   //begin profile animation
                   setTimeout(function() {
-                    // $profile.css({'opacity': '0.8'});
                     $profileLoc.css({'opacity': '0.8'});
                     $profileAbout.css({'opacity': '0.8'});
                     $profileTop.css({'opacity': '0.8'});
@@ -573,7 +570,11 @@
         </div>
       </div>
       
+      
+      <!--Feeds Screen -->
       <div class="feeds-container">
+        <img class="feeds-like" src="android_blue_like.png">
+        <img class="feeds-counter" src="android_like_count.png">
         <img class="feeds-screen" src="android_feeds_screen.png">
       </div>
 
