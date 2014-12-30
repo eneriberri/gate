@@ -275,7 +275,15 @@
         z-index: 2;
         opacity: 0;
       }
+      .feeds-counter2 {
+        z-index: 2;
+        opacity: 0;
+      }
       .feeds-like {
+        z-index: 2;
+        opacity: 0;
+      }
+      .feeds-like2 {
         z-index: 2;
         opacity: 0;
       }
@@ -358,7 +366,9 @@
             $profileBottom = $('.device-profile-bottom'),
             $feedsScreen = $('.feeds-screen'),
             $feedsLike = $('.feeds-like'),
-            $feedsCounter = $('.feeds-counter');
+            $feedsLike2 = $('.feeds-like2'),
+            $feedsCounter = $('.feeds-counter'),
+            $feedsCounter2 = $('.feeds-counter2');
         // setInterval(function() {
           
         
@@ -423,10 +433,32 @@
                       $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(-154px,-332px)', 'background-color': '#00BBFF'});
                       
                       
-                      //
-                      // Feeds screen begins here
-                      //
+                      /*
+                       Feeds screen begins here
+                      */
                       $feedsScreen.css({'opacity': 1});
+                      //Display liking functionality and increase the counter on the screen
+                      setTimeout(function() {
+                        $feedsLike.css({'opacity': 1});
+                        setTimeout(function() {
+                          $feedsCounter.css({'opacity': 1});
+                        }, 500); 
+                      }, 1500);
+                      
+                      setTimeout(function() {
+                        $feedsLike.css({'opacity': 1});
+                        setTimeout(function() {
+                          $feedsCounter.css({'opacity': 1});
+                        }, 500); 
+                      }, 1500);
+                      
+                      setTimeout(function() {
+                        $feedsLike2.css({'opacity': 1});
+                        setTimeout(function() {
+                          $feedsCounter2.css({'opacity': 1});
+                        }, 500); 
+                      }, 3000);
+                      
                       //after band2 finishes animating to the top, have it slide to the right
                       // setTimeout(function() {
                       //   $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(187px,-332px)'});
@@ -559,7 +591,9 @@
       <!--Feeds Screen -->
       <div class="feeds-container">
         <img class="feeds-like" src="android_blue_like.png">
+        <img class="feeds-like2" src="android_blue_like2.png">
         <img class="feeds-counter" src="android_like_count.png">
+        <img class="feeds-counter2" src="android_like_count2.png">
         <img class="feeds-screen" src="android_feeds_screen.png">
       </div>
 
