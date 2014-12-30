@@ -269,7 +269,7 @@
       }
       .feeds-screen {
         z-index: 1;
-        opacity: 1;
+        opacity: 0;
       }
       .feeds-counter {
         z-index: 2;
@@ -410,28 +410,6 @@
                          
                   }, 1000); //end login screen animations
                   
-                  
-                  
-                  setTimeout(function() {
-                    //device band animations
-                    $deviceBand1.fadeIn(100, function() {
-                      $deviceBand2.fadeIn(200);
-                    
-                      $deviceBand1.animate({'top': '0'}, 800, function() {
-                        $deviceBand1.fadeOut();
-                      });
-                    });
-                    
-                    setTimeout(function() {
-                      $deviceBand2.animate({'top': '230px'}, 600);
-                    }, 350); 
-                  }, 3000); //ends the first animation cycle
-
-                  
-                  
-
-                  
-                  
                   //begin 2nd animation cycle 
                   setTimeout(function() {
                     $deviceBand1.css({'top': '156px', 'width': '0'});
@@ -444,76 +422,84 @@
                     $deviceBand2.fadeIn(100, function() {
                       $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(-154px,-332px)', 'background-color': '#00BBFF'});
                       
+                      
+                      //
+                      // Feeds screen begins here
+                      //
+                      $feedsScreen.css({'opacity': 1});
                       //after band2 finishes animating to the top, have it slide to the right
-                      setTimeout(function() {
-                        $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(187px,-332px)'});
-                        
-                        setTimeout(function() {
-                          
-                          //so why fadeout vs opacity: 0 ??
-                          //because the css property transition makes fadeOut break - on elements with 
-                          //css of transition set, to achieve a fading effect, i am doing opacity: 0
-                          setTimeout(function() {
-                            $deviceBand1.fadeOut();
-                            $deviceBand2.css({'opacity': '0'});
-                            $deviceAppHeader.fadeOut();
-                            
-                          }, 900);
-                          
-                        }, 900);
-                        
-                        
-                      },1000);
+                      // setTimeout(function() {
+                      //   $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(187px,-332px)'});
+                      //
+                      //   setTimeout(function() {
+                      //
+                      //     //so why fadeout vs opacity: 0 ??
+                      //     //because the css property transition makes fadeOut break - on elements with
+                      //     //css of transition set, to achieve a fading effect, i am doing opacity: 0
+                      //     setTimeout(function() {
+                      //       $deviceBand1.fadeOut();
+                      //       $deviceBand2.css({'opacity': '0'});
+                      //       $deviceAppHeader.fadeOut();
+                      //
+                      //     }, 900);
+                      //
+                      //   }, 900);
+                      //
+                      //
+                      // },1000);
+                      
                     });
 
-
-
-                  }, 5500); //ends the second animation cycle
+                  }, 3000); //ends the second animation cycle
                   
                   
-                  //begin profile animation
                   setTimeout(function() {
-                    $profileLoc.css({'opacity': '0.8'});
-                    $profileAbout.css({'opacity': '0.8'});
-                    $profileTop.css({'opacity': '0.8'});
-                    $profileBottom.css({'opacity': '0.8'});
-                    $profilePin.css({'opacity': '0.8'});
-                    
-                    //begin profile moving up and fade out
-                    setTimeout(function() {
-                      $profileTop.css({'-webkit-transform': 'translate(0px, -120px)'});
-                      setTimeout(function() {
-                        $profileTop.css({'opacity': '0'});
-                      }, 300);
-                    }, 1000);
-                    
-                    //begin profile moving up
-                    setTimeout(function() {
-                      $profilePin.css({'-webkit-transform': 'translate(-36px, -170px)'});
-                      $profileLoc.css({'-webkit-transform': 'rotate(-30.5deg) skew(15deg,0deg) translate(102px, -162px)'});
-                      setTimeout(function() {
-                        $profilePin.css({'opacity': '0'});
-                        $profileLoc.css({'opacity': '0'});
-                      }, 300);
-                    }, 1800);
-                    
-                    //begin profile moving up
-                    setTimeout(function() {
-                      $profileAbout.css({'-webkit-transform': 'rotate(-25.2deg) skew(15deg,-5.5deg) translate(73px, -160px)'});
-                      setTimeout(function() {
-                        $profileAbout.css({'opacity': '0'});
-                      }, 300);
-                    }, 2400);
-                    
-                    //begin profile moving up and fade out
-                    setTimeout(function() {
-                      $profileBottom.css({'-webkit-transform': 'translate(0px, -120px)'});
-                      setTimeout(function() {
-                        $profileBottom.css({'opacity': '0'});
-                      }, 300);
-                    }, 2000);
-                    
+                    console.log('test');
                   }, 9000);
+                  //
+                  // //begin profile animation
+                  // setTimeout(function() {
+                  //   $profileLoc.css({'opacity': '0.8'});
+                  //   $profileAbout.css({'opacity': '0.8'});
+                  //   $profileTop.css({'opacity': '0.8'});
+                  //   $profileBottom.css({'opacity': '0.8'});
+                  //   $profilePin.css({'opacity': '0.8'});
+                  //
+                  //   //begin profile moving up and fade out
+                  //   setTimeout(function() {
+                  //     $profileTop.css({'-webkit-transform': 'translate(0px, -120px)'});
+                  //     setTimeout(function() {
+                  //       $profileTop.css({'opacity': '0'});
+                  //     }, 300);
+                  //   }, 1000);
+                  //
+                  //   //begin profile moving up
+                  //   setTimeout(function() {
+                  //     $profilePin.css({'-webkit-transform': 'translate(-36px, -170px)'});
+                  //     $profileLoc.css({'-webkit-transform': 'rotate(-30.5deg) skew(15deg,0deg) translate(102px, -162px)'});
+                  //     setTimeout(function() {
+                  //       $profilePin.css({'opacity': '0'});
+                  //       $profileLoc.css({'opacity': '0'});
+                  //     }, 300);
+                  //   }, 1800);
+                  //
+                  //   //begin profile moving up
+                  //   setTimeout(function() {
+                  //     $profileAbout.css({'-webkit-transform': 'rotate(-25.2deg) skew(15deg,-5.5deg) translate(73px, -160px)'});
+                  //     setTimeout(function() {
+                  //       $profileAbout.css({'opacity': '0'});
+                  //     }, 300);
+                  //   }, 2400);
+                  //
+                  //   //begin profile moving up and fade out
+                  //   setTimeout(function() {
+                  //     $profileBottom.css({'-webkit-transform': 'translate(0px, -120px)'});
+                  //     setTimeout(function() {
+                  //       $profileBottom.css({'opacity': '0'});
+                  //     }, 300);
+                  //   }, 2000);
+                  //
+                  // }, 9000);
 
                 }); //gate logo fadeOut end
               }); //gate logo animate up end
@@ -558,7 +544,6 @@
       
       <!--Profile Screen -->
       <div class="profile-container">
-        <img class="device-profile" src="android_profile_screen.png">
         <img class="device-profile-top" src="android_profile_top.png">
         <img class="device-profile-pin" src="android_profile_pin.png">
         <img class="device-profile-bottom" src="android_profile_bottom.png">
