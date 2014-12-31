@@ -7,35 +7,35 @@
     <style>
       body {
         margin: 0;
-        font-family: 'Roboto', sans-serif;   
-      }
-      
-      .overlay {
-        opacity: .9;
-        background-color: #00070a;
-        width: 3000px;
-        height: 3000px;
-        position: fixed;
+        font-family: 'Roboto', sans-serif;  
+        background: #181E21;
+/*        background: url('overlay.png');*/
       }
       
 /*ANDROID DEVICE*/
       .android-container {
-        display: none;
-        position: relative;
-        opacity: 0.3;
+        width: 65%;
+        margin-top: -80px;
+        position: fixed;
+        left: 25%;
+        margin-left: -120px;
+        min-width: 935px;
+      }
+      .android-container img {
+        position: absolute;
       }
       .android-device {
-        position: absolute;
-        left: 50%;      
-        top: 50%;
-        margin-left: -360px;
-        margin-top: 65px;
-        width: 720px;
+        width: 100%;
+      }
+      .android-device-whitecover {
+        width: 100%;
+        opacity: 0.3;
+        z-index: 9;
       }
       .device-logo {
-        position: absolute;
-        top: 277px;
-        left: 44.5%;
+        width: 100%;
+        opacity: 0.95;
+        z-index: 10;
       }
       .device-band1 {
       	width: 277px;
@@ -93,7 +93,7 @@
          -moz-transition: all .6s ease-in-out; /** Firefox **/
          -o-transition: all .6s ease-in-out; /** Opera **/
       }
-      .device-login-btn {
+      .android-container .device-login-btn {
         width: 905px;
         position: absolute;
         left: 50%;
@@ -251,14 +251,11 @@
       
       .feeds-container {
         position: relative;
-        z-index: 1;
+        z-index: 9;
+/*        opacity: 0;*/
       }
       .feeds-container img {
-        width: 905px;
-        position: absolute;
-        left: 50%;
-        margin-left: -461px;
-        top: -79px;
+        width: 100%;
         transition: all .6s ease-in-out;
          -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
          -moz-transition: all .6s ease-in-out; /** Firefox **/
@@ -269,7 +266,7 @@
       }
       .feeds-screen {
         z-index: 1;
-        opacity: 0;
+/*        opacity: 0;*/
       }
       .feeds-counter {
         z-index: 2;
@@ -316,7 +313,7 @@
         left: 50%;
         margin-left: -277px;
         margin-top: -125px;
-        z-index: 1;
+        z-index: 100;
         color: white;
       }
       .tagline {
@@ -343,6 +340,15 @@
         margin-top: 25px;
         display: none;
       }
+      
+      
+/*      .test {
+        width: 300px;
+        height: 300px;
+        position: relative;
+        z-index: 5;
+        background-color: orange;
+      }*/
     </style>
     
     <script>
@@ -372,7 +378,9 @@
         // setInterval(function() {
           
         
-              
+          if(false) {
+            
+            
             
         //Pause before the start of all the animations
         //1. Fade in Android device
@@ -411,7 +419,7 @@
                         $loginForgotPw.css({'-webkit-transform': 'rotate(-32deg) skew(16.5deg,0deg) translate(150px, 0px)', 'color': 'transparent'});
                         
                         setTimeout(function() {                                   
-                          $loginBtn.css({'-webkit-transform': 'translate(120px, -220px)', 'opacity': '0'});
+                          $loginBtn.css({'-webkit-transform': 'translate(120px, -220px)'});
                           $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(245px, -131px)', 'opacity': '0'});
                         }, 400); //fade out last remaining login elements
                         
@@ -538,26 +546,25 @@
             }); //android container fadeIn end
             
         }, 500); //parent setTimeout
+      }
       // }, 12000);
       });
     </script>
   </head>
 
   <body>
-    <div class="overlay"></div>
-    <div class="separator"></div>
+    <!-- <div class="separator"></div>
     <div class="gate-header">
       gate
       <div class="tagline">
         Lorem ipsum dolor sit amet, consectetur adipiscing el
       </div>
-    </div>
+    </div> -->
     
 <!-- ANDROID DEVICE -->
     <div class="android-container">
-      
       <!--Login Screen -->
-      <div class="login-container">
+      <!-- <div class="login-container">
         <img class="device-login-fields" src="android_login_fields.png">
         <img class="device-login-btn" src="android_login_btn.png">
         <div class="username">
@@ -572,10 +579,10 @@
         <div class="forgot-pw">
           Forgot your password?
         </div>
-      </div>
+      </div> -->
       
       <!--Profile Screen -->
-      <div class="profile-container">
+      <!-- <div class="profile-container">
         <img class="device-profile-top" src="android_profile_top.png">
         <img class="device-profile-pin" src="android_profile_pin.png">
         <img class="device-profile-bottom" src="android_profile_bottom.png">
@@ -585,7 +592,7 @@
         <div class="about">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis euismod nulla vel dapibus. Aenean ac metus ut erat gravida cursus vel eu est. Pellentesque ac nisl sit amet mauris varius fermentum eget in nisi. Vestibulum ante ipsum primis in faucibus orci luctus
         </div>
-      </div>
+      </div> -->
       
       
       <!--Feeds Screen -->
@@ -599,15 +606,16 @@
 
       <div class="device-app-header">feed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gates</div>
       
-      <img class="android-device" src="nexus.png">
-      <img class="device-logo" src="gate_logo_device.png">
+      <img class="android-device" src="nexus_large.png">
+      <img class="android-device-whitecover" src="nexus_whitecover_large.png">
+      <img class="device-logo" src="gate_logo.png">
       <div class="device-band1"></div>
       <div class="device-band2"></div>
     </div>
     
-    <div class="dl-app-container">
+    <!-- <div class="dl-app-container">
       <img class="dl-android" src="badge_android.png">
-    </div>
+    </div> -->
 
   </body>
 
