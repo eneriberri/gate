@@ -34,7 +34,6 @@
       }
       .device-logo {
         width: 100%;
-        opacity: 0.95;
         z-index: 10;
       }
       .device-band1 {
@@ -252,7 +251,7 @@
       .feeds-container {
         position: relative;
         z-index: 9;
-/*        opacity: 0;*/
+        opacity: 0;
       }
       .feeds-container img {
         width: 100%;
@@ -266,7 +265,7 @@
       }
       .feeds-screen {
         z-index: 1;
-/*        opacity: 0;*/
+        opacity: 0;
       }
       .feeds-counter {
         z-index: 2;
@@ -353,8 +352,7 @@
     
     <script>
       $(document).ready(function() {
-        var $androidContainer = $('.android-container'),
-            $logo = $('.device-logo'),
+        var $logo = $('.device-logo'),
             $deviceBand1 = $('.device-band1'),
             $deviceBand2 = $('.device-band2'),
             $deviceAppHeader = $('.device-app-header'),
@@ -378,19 +376,16 @@
         // setInterval(function() {
           
         
-          if(false) {
+          if(true) {
             
             
             
         //Pause before the start of all the animations
-        //1. Fade in Android device
-        //2. Fade in logo
-        //3. Transition up logo then fade it out
-        //4. Fade in login screen
-        //5. Transition up the login screen's components then fade them out
+        //1. Transition up logo then fade it out
+        //2. Fade in login screen
+        //3. Transition up the login screen's components then fade them out
         setTimeout(function() {
-            $androidContainer.fadeIn(1200, function() {
-              $logo.animate({'top': '90px'}, 700, function() {
+              $logo.animate({'top': '-150px'}, 700, function() {
                 $logo.fadeOut(500, function() {
 
                   //**
@@ -543,9 +538,8 @@
 
                 }); //gate logo fadeOut end
               }); //gate logo animate up end
-            }); //android container fadeIn end
             
-        }, 500); //parent setTimeout
+        }, 1000); //parent setTimeout
       }
       // }, 12000);
       });
