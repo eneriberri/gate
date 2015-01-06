@@ -9,7 +9,6 @@
         margin: 0;
         font-family: 'Roboto', sans-serif;  
         background: #181E21;
-/*        background: url('overlay.png');*/
       }
       
 /*ANDROID DEVICE*/
@@ -26,6 +25,7 @@
       }
       .android-device {
         width: 100%;
+        z-index: 20;
       }
       .android-device-whitecover {
         width: 100%;
@@ -34,19 +34,19 @@
       }
       .device-logo {
         width: 100%;
-        z-index: 10;
+        z-index: 9;
       }
       .device-band1 {
       	width: 277px;
       	height: 40px;
-      	background: #031019;
+      	background: #181E21;
         -ms-transform: rotate(-32deg) skew(10deg,4.5deg); /* IE 9 */
         -webkit-transform: rotate(-32deg) skew(10deg,4.5deg); /* Chrome, Safari, Opera */
         transform: rotate(-32deg) skew(10deg,4.5deg);
         position: absolute;
-        left: 29%;
-        top: 156px;
-        z-index: 2;
+        left: 18.2%;
+        top: 245px;
+        z-index: 9;
         display: none;
       }
       .device-band2 {
@@ -57,16 +57,30 @@
         -webkit-transform: rotate(-32deg) skew(12deg,1deg); /* Chrome, Safari, Opera */
         transform: rotate(-32deg) skew(12deg,1deg);
         position: absolute;
-        left: 45.1%;
+        left: 43%;
         top: 437px;
         display: none;
         transition: all .7s ease-in-out;
          -webkit-transition: all .7s ease-in-out; /** Chrome & Safari **/
          -moz-transition: all .7s ease-in-out; /** Firefox **/
          -o-transition: all .7s ease-in-out; /** Opera **/
-         z-index: 2;
+         z-index: 9;
       }
-      
+      .device-app-header {
+        position: absolute;
+        transform: rotate(-30deg) skew(12deg,2.5deg);
+        font-size: 13px;
+        top: 220px;
+        left: 50%;
+        margin-left: -271px;
+        margin-top: 36px;
+        z-index: 3;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: white;
+        display: none;
+        z-index: 10;
+      }
       
       /**/
       /* LOGIN SCREEN */
@@ -74,18 +88,15 @@
       .login-container {
         position: relative;
         display: none;
-        z-index: 1;
+        z-index: 10;
+      }
+      .login-container img {
+        width: 100%;
       }
       .login-container div {
         position: absolute;
       }
       .device-login-fields {
-        width: 905px;
-        position: absolute;
-        left: 50%;
-        margin-left: -461px;
-        top: -79px;
-        z-index: 1;
         opacity: 0;
         transition: all .6s ease-in-out;
          -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
@@ -93,12 +104,12 @@
          -o-transition: all .6s ease-in-out; /** Opera **/
       }
       .android-container .device-login-btn {
-        width: 905px;
+       /* width: 905px;
         position: absolute;
         left: 50%;
         margin-left: -461px;
-        top: -79px;
-        z-index: 1;
+        top: -79px;*/
+/*        z-index: 9;*/
         opacity: 0;
         transition: all .6s ease-in-out;
          -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
@@ -106,10 +117,10 @@
          -o-transition: all .6s ease-in-out; /** Opera **/
       }
       .username {
-        top: 291px;
+        top: 381px;
         left: 50%;
         margin-left: -200px;
-        z-index: 1;
+/*        z-index: 1;*/
         text-transform: uppercase;
         letter-spacing: 2px;
         font-size: 18px;
@@ -119,12 +130,13 @@
          -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
          -moz-transition: all .6s ease-in-out; /** Firefox **/
          -o-transition: all .6s ease-in-out; /** Opera **/
+         display: none;
       }
       .password {
-        top: 328px;
+        top: 419px;
         left: 50%;
         margin-left: -170px;
-        z-index: 1;
+/*        z-index: 1;*/
         text-transform: uppercase;
         letter-spacing: 2px;
         font-size: 18px;
@@ -134,12 +146,13 @@
          -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
          -moz-transition: all .6s ease-in-out; /** Firefox **/
          -o-transition: all .6s ease-in-out; /** Opera **/
+         display: none;
       }
       .login-btn-text {
-        top: 349px;
+        top: 446px;
         left: 50%;
-        margin-left: -22px;
-        z-index: 1;
+        margin-left: -19px;
+/*        z-index: 1;*/
         text-transform: uppercase;
         letter-spacing: 3px;
         font-size: 16px;
@@ -151,12 +164,12 @@
          -o-transition: all .6s ease-in-out; /** Opera **/
       }
       .forgot-pw {
-        top: 374px;
+        top: 477px;
         left: 50%;
-        margin-left: -22px;
-        z-index: 1;
+        margin-left: -18px;
+/*        z-index: 1;*/
         font-size: 11px;
-        transform: rotate(-32deg) skew(16.5deg,0deg);
+        transform: rotate(-30.5deg) skew(16.5deg,0deg);
         color: #0B9AD2;
         transition: all .6s ease-in-out;
          -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
@@ -251,7 +264,6 @@
       .feeds-container {
         position: relative;
         z-index: 9;
-        opacity: 0;
       }
       .feeds-container img {
         width: 100%;
@@ -285,32 +297,16 @@
       }
       
       
-      .device-app-header {
-        position: absolute;
-        transform: rotate(-30deg) skew(12deg,2.5deg);
-        font-size: 13px;
-        top: 130px;
-        left: 50%;
-        margin-left: -275px;
-        margin-top: 36px;
-        z-index: 3;
-        letter-spacing: 5px;
-        text-transform: uppercase;
-        color: white;
-        display: none;
-      }
-      
-      
       
 /*GATE HEADER AND TAGLINE*/
       .gate-header {
-        letter-spacing: 70px;
-        font-size: 135px;
+        letter-spacing: 80px;
+        font-size: 145px;
         text-transform: uppercase;
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-left: -277px;
+        margin-left: -316px;
         margin-top: -125px;
         z-index: 100;
         color: white;
@@ -320,7 +316,7 @@
         letter-spacing: 2px;
         text-transform: none;
         font-family: 'Lora', serif;
-        margin-left: 30px;
+        margin-left: 58px;
       }
 /*      .separator {
         background-color: #00BBFF;
@@ -374,11 +370,6 @@
             $feedsCounter = $('.feeds-counter'),
             $feedsCounter2 = $('.feeds-counter2');
         // setInterval(function() {
-          
-        
-          if(true) {
-            
-            
             
         //Pause before the start of all the animations
         //1. Transition up logo then fade it out
@@ -396,42 +387,42 @@
                   $loginBtn.css({'opacity': '0.7'});
                   
                   //Fade out the form and start moving around the input fields and login btn
-                  setTimeout(function() {
-                    $loginFields.css({'-webkit-transform': 'translate(0px, -120px)'});
-                    $loginUsername.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
-                    $loginPassword.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
-                    //fade up the login btn and text up after a pause
-                    setTimeout(function() {
-                      $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
-                      $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
-                      $loginUsername.css({'opacity': '0'});
-                      $loginPassword.css({'opacity': '0'});
-                      $loginFields.css({'opacity': '0'});
-                      
-                      setTimeout(function() {
-                        $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
-                        $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
-                        $loginForgotPw.css({'-webkit-transform': 'rotate(-32deg) skew(16.5deg,0deg) translate(150px, 0px)', 'color': 'transparent'});
-                        
-                        setTimeout(function() {                                   
-                          $loginBtn.css({'-webkit-transform': 'translate(120px, -220px)'});
-                          $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(245px, -131px)', 'opacity': '0'});
-                        }, 400); //fade out last remaining login elements
-                        
-                      }, 500);
-                    }, 700); //ends login btn and fields fade up
-                         
-                  }, 1000); //end login screen animations
+                  // setTimeout(function() {
+                  //   $loginFields.css({'-webkit-transform': 'translate(0px, -120px)'});
+                  //   $loginUsername.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
+                  //   $loginPassword.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
+                  //   //fade up the login btn and text up after a pause
+                  //   setTimeout(function() {
+                  //     $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
+                  //     $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
+                  //     $loginUsername.css({'opacity': '0'});
+                  //     $loginPassword.css({'opacity': '0'});
+                  //     $loginFields.css({'opacity': '0'});
+                  //
+                  //     setTimeout(function() {
+                  //       $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
+                  //       $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
+                  //       $loginForgotPw.css({'-webkit-transform': 'rotate(-32deg) skew(16.5deg,0deg) translate(150px, 0px)', 'color': 'transparent'});
+                  //
+                  //       setTimeout(function() {
+                  //         $loginBtn.css({'-webkit-transform': 'translate(120px, -220px)'});
+                  //         $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(245px, -131px)', 'opacity': '0'});
+                  //       }, 400); //fade out last remaining login elements
+                  //
+                  //     }, 500);
+                  //   }, 700); //ends login btn and fields fade up
+                  //
+                  // }, 1000); //end login screen animations
                   
                   //begin 2nd animation cycle 
                   setTimeout(function() {
-                    $deviceBand1.css({'top': '156px', 'width': '0'});
+                    $deviceBand1.css({'width': '0'});
                     $deviceBand1.fadeIn(100, function() {
                       $deviceBand1.animate({'width': '277px'});
                       $deviceAppHeader.fadeIn();
                     });
                     
-                    $deviceBand2.css({'top': '437px'});
+                    $deviceBand2.css({'top': '524px'});
                     $deviceBand2.fadeIn(100, function() {
                       $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(-154px,-332px)', 'background-color': '#00BBFF'});
                       
@@ -439,49 +430,49 @@
                       /*
                        Feeds screen begins here
                       */
-                      $feedsScreen.css({'opacity': 1});
-                      //Display liking functionality and increase the counter on the screen
-                      setTimeout(function() {
-                        $feedsLike.css({'opacity': 1});
-                        setTimeout(function() {
-                          $feedsCounter.css({'opacity': 1});
-                        }, 500); 
-                      }, 1500);
-                      
-                      setTimeout(function() {
-                        $feedsLike.css({'opacity': 1});
-                        setTimeout(function() {
-                          $feedsCounter.css({'opacity': 1});
-                        }, 500); 
-                      }, 1500);
-                      
-                      setTimeout(function() {
-                        $feedsLike2.css({'opacity': 1});
-                        setTimeout(function() {
-                          $feedsCounter2.css({'opacity': 1});
-                        }, 500); 
-                      }, 3000);
-                      
+                      // $feedsScreen.css({'opacity': 1});
+//                       //Display liking functionality and increase the counter on the screen
+//                       setTimeout(function() {
+//                         $feedsLike.css({'opacity': 1});
+//                         setTimeout(function() {
+//                           $feedsCounter.css({'opacity': 1});
+//                         }, 500);
+//                       }, 1500);
+//
+//                       setTimeout(function() {
+//                         $feedsLike.css({'opacity': 1});
+//                         setTimeout(function() {
+//                           $feedsCounter.css({'opacity': 1});
+//                         }, 500);
+//                       }, 1500);
+//
+//                       setTimeout(function() {
+//                         $feedsLike2.css({'opacity': 1});
+//                         setTimeout(function() {
+//                           $feedsCounter2.css({'opacity': 1});
+//                         }, 500);
+//                       }, 3000);
+
                       //after band2 finishes animating to the top, have it slide to the right
-                      // setTimeout(function() {
-                      //   $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(187px,-332px)'});
-                      //
-                      //   setTimeout(function() {
-                      //
-                      //     //so why fadeout vs opacity: 0 ??
-                      //     //because the css property transition makes fadeOut break - on elements with
-                      //     //css of transition set, to achieve a fading effect, i am doing opacity: 0
-                      //     setTimeout(function() {
-                      //       $deviceBand1.fadeOut();
-                      //       $deviceBand2.css({'opacity': '0'});
-                      //       $deviceAppHeader.fadeOut();
-                      //
-                      //     }, 900);
-                      //
-                      //   }, 900);
-                      //
-                      //
-                      // },1000);
+                      setTimeout(function() {
+                        $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(187px,-332px)'});
+
+                        setTimeout(function() {
+
+                          //so why fadeout vs opacity: 0 ??
+                          //because the css property transition makes fadeOut break - on elements with
+                          //css of transition set, to achieve a fading effect, i am doing opacity: 0
+                          setTimeout(function() {
+                            $deviceBand1.fadeOut();
+                            $deviceBand2.css({'opacity': '0'});
+                            $deviceAppHeader.fadeOut();
+
+                          }, 900);
+
+                        }, 900);
+
+
+                      },1000);
                       
                     });
 
@@ -540,25 +531,25 @@
               }); //gate logo animate up end
             
         }, 1000); //parent setTimeout
-      }
+    
       // }, 12000);
       });
     </script>
   </head>
 
   <body>
-    <!-- <div class="separator"></div>
+    <div class="separator"></div>
     <div class="gate-header">
       gate
       <div class="tagline">
         Lorem ipsum dolor sit amet, consectetur adipiscing el
       </div>
-    </div> -->
+    </div>
     
 <!-- ANDROID DEVICE -->
     <div class="android-container">
       <!--Login Screen -->
-      <!-- <div class="login-container">
+      <div class="login-container">
         <img class="device-login-fields" src="android_login_fields.png">
         <img class="device-login-btn" src="android_login_btn.png">
         <div class="username">
@@ -573,7 +564,7 @@
         <div class="forgot-pw">
           Forgot your password?
         </div>
-      </div> -->
+      </div>
       
       <!--Profile Screen -->
       <!-- <div class="profile-container">
