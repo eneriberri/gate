@@ -430,28 +430,28 @@
                       /*
                        Feeds screen begins here
                       */
-                      // $feedsScreen.css({'opacity': 1});
-//                       //Display liking functionality and increase the counter on the screen
-//                       setTimeout(function() {
-//                         $feedsLike.css({'opacity': 1});
-//                         setTimeout(function() {
-//                           $feedsCounter.css({'opacity': 1});
-//                         }, 500);
-//                       }, 1500);
-//
-//                       setTimeout(function() {
-//                         $feedsLike.css({'opacity': 1});
-//                         setTimeout(function() {
-//                           $feedsCounter.css({'opacity': 1});
-//                         }, 500);
-//                       }, 1500);
-//
-//                       setTimeout(function() {
-//                         $feedsLike2.css({'opacity': 1});
-//                         setTimeout(function() {
-//                           $feedsCounter2.css({'opacity': 1});
-//                         }, 500);
-//                       }, 3000);
+                      $feedsScreen.css({'opacity': 0.7});
+                      //Display liking functionality and increase the counter on the screen
+                      // setTimeout(function() {
+                      //   $feedsLike.css({'opacity': 1});
+                      //   setTimeout(function() {
+                      //     $feedsCounter.css({'opacity': 1});
+                      //   }, 500);
+                      // }, 1500);
+
+                      // setTimeout(function() {
+                      //   $feedsLike.css({'opacity': 0.7});
+                      //   setTimeout(function() {
+                      //     $feedsCounter.css({'opacity': 0.7});
+                      //   }, 500);
+                      // }, 1500);
+
+                      // setTimeout(function() {
+                     //    $feedsLike2.css({'opacity': 0.7});
+                     //    setTimeout(function() {
+                     //      $feedsCounter2.css({'opacity': 0.7});
+                     //    }, 500);
+                     //  }, 3000);
 
                       //after band2 finishes animating to the top, have it slide to the right
                       setTimeout(function() {
@@ -466,7 +466,7 @@
                             $deviceBand1.fadeOut();
                             $deviceBand2.css({'opacity': '0'});
                             $deviceAppHeader.fadeOut();
-
+                            $feedsScreen.css({'opacity': '0'});
                           }, 900);
 
                         }, 900);
@@ -478,10 +478,6 @@
 
                   }, 3000); //ends the second animation cycle
                   
-                  
-                  setTimeout(function() {
-                    console.log('test');
-                  }, 9000);
                   //
                   // //begin profile animation
                   // setTimeout(function() {
