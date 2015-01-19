@@ -430,28 +430,21 @@
                       /*
                        Feeds screen begins here
                       */
-                      $feedsScreen.css({'opacity': 0.7});
+                      $feedsScreen.css({'opacity': 0.6});
                       //Display liking functionality and increase the counter on the screen
-                      // setTimeout(function() {
-                      //   $feedsLike.css({'opacity': 1});
-                      //   setTimeout(function() {
-                      //     $feedsCounter.css({'opacity': 1});
-                      //   }, 500);
-                      // }, 1500);
+                      setTimeout(function() {
+                        $feedsLike.css({'opacity': 0.5});
+                        setTimeout(function() {
+                          // $feedsCounter.css({'opacity': 1});
+                        }, 500);
+                      }, 1500);
 
-                      // setTimeout(function() {
-                      //   $feedsLike.css({'opacity': 0.7});
-                      //   setTimeout(function() {
-                      //     $feedsCounter.css({'opacity': 0.7});
-                      //   }, 500);
-                      // }, 1500);
-
-                      // setTimeout(function() {
-                     //    $feedsLike2.css({'opacity': 0.7});
-                     //    setTimeout(function() {
-                     //      $feedsCounter2.css({'opacity': 0.7});
-                     //    }, 500);
-                     //  }, 3000);
+                      setTimeout(function() {
+                        $feedsLike2.css({'opacity': 0.5});
+                        // setTimeout(function() {
+                        //   $feedsCounter2.css({'opacity': 0.7});
+                        // }, 500);
+                      }, 3000);
 
                       //after band2 finishes animating to the top, have it slide to the right
                       setTimeout(function() {
@@ -466,7 +459,6 @@
                             $deviceBand1.fadeOut();
                             $deviceBand2.css({'opacity': '0'});
                             $deviceAppHeader.fadeOut();
-                            $feedsScreen.css({'opacity': '0'});
                           }, 900);
 
                         }, 900);
@@ -478,7 +470,7 @@
 
                   }, 3000); //ends the second animation cycle
                   
-                  //
+                                    //
                   // //begin profile animation
                   // setTimeout(function() {
                   //   $profileLoc.css({'opacity': '0.8'});
@@ -583,6 +575,11 @@
         <img class="feeds-counter" src="android_like_count.png">
         <img class="feeds-counter2" src="android_like_count2.png">
         <img class="feeds-screen" src="android_feeds_screen.png">
+      </div>
+      
+      <!--Gate Screen -->
+      <div class="gate-container">
+        <img class="gate-screen" src="gate_screen.png">
       </div>
 
       <div class="device-app-header">feed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gates</div>
