@@ -14,7 +14,7 @@
 /*ANDROID DEVICE*/
       .android-container {
         width: 65%;
-        margin-top: -80px;
+        margin-top: -3%;
         position: fixed;
         left: 25%;
         margin-left: -120px;
@@ -387,32 +387,32 @@
                   $loginBtn.css({'opacity': '0.7'});
                   
                   //Fade out the form and start moving around the input fields and login btn
-                  // setTimeout(function() {
-                  //   $loginFields.css({'-webkit-transform': 'translate(0px, -120px)'});
-                  //   $loginUsername.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
-                  //   $loginPassword.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
-                  //   //fade up the login btn and text up after a pause
-                  //   setTimeout(function() {
-                  //     $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
-                  //     $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
-                  //     $loginUsername.css({'opacity': '0'});
-                  //     $loginPassword.css({'opacity': '0'});
-                  //     $loginFields.css({'opacity': '0'});
-                  //
-                  //     setTimeout(function() {
-                  //       $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
-                  //       $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
-                  //       $loginForgotPw.css({'-webkit-transform': 'rotate(-32deg) skew(16.5deg,0deg) translate(150px, 0px)', 'color': 'transparent'});
-                  //
-                  //       setTimeout(function() {
-                  //         $loginBtn.css({'-webkit-transform': 'translate(120px, -220px)'});
-                  //         $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(245px, -131px)', 'opacity': '0'});
-                  //       }, 400); //fade out last remaining login elements
-                  //
-                  //     }, 500);
-                  //   }, 700); //ends login btn and fields fade up
-                  //
-                  // }, 1000); //end login screen animations
+                  setTimeout(function() {
+                    $loginFields.css({'-webkit-transform': 'translate(0px, -120px)'});
+                    $loginUsername.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
+                    $loginPassword.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
+                    //fade up the login btn and text up after a pause
+                    setTimeout(function() {
+                      $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
+                      $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
+                      $loginUsername.css({'opacity': '0'});
+                      $loginPassword.css({'opacity': '0'});
+                      $loginFields.css({'opacity': '0'});
+
+                      setTimeout(function() {
+                        $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
+                        $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
+                        $loginForgotPw.css({'-webkit-transform': 'rotate(-32deg) skew(16.5deg,0deg) translate(150px, 0px)', 'color': 'transparent'});
+
+                        setTimeout(function() {
+                          $loginBtn.css({'-webkit-transform': 'translate(120px, -220px)', 'opacity': '0'});
+                          $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(245px, -131px)', 'opacity': '0'});
+                        }, 400); //fade out last remaining login elements
+
+                      }, 500);
+                    }, 700); //ends login btn and fields fade up
+
+                  }, 1000); //end login screen animations
                   
                   //begin 2nd animation cycle 
                   setTimeout(function() {
