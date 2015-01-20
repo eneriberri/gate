@@ -76,38 +76,6 @@
          -moz-transition: all .6s ease-in-out; /** Firefox **/
          -o-transition: all .6s ease-in-out; /** Opera **/
       }
-      .username {
-        top: 381px;
-        left: 50%;
-        margin-left: -200px;
-/*        z-index: 1;*/
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 18px;
-        transform: rotate(-29deg) skew(15deg,0deg);
-        color: #00070a;
-        transition: all .6s ease-in-out;
-         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all .6s ease-in-out; /** Firefox **/
-         -o-transition: all .6s ease-in-out; /** Opera **/
-         display: none;
-      }
-      .password {
-        top: 419px;
-        left: 50%;
-        margin-left: -170px;
-/*        z-index: 1;*/
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 18px;
-        transform: rotate(-29deg) skew(15deg,0deg);
-        color: #b1b3b5;
-        transition: all .6s ease-in-out;
-         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all .6s ease-in-out; /** Firefox **/
-         -o-transition: all .6s ease-in-out; /** Opera **/
-         display: none;
-      }
       
       
       
@@ -234,8 +202,6 @@
 
         var $logo = $('.device-logo'),
             $loginContainer = $('.login-container'),
-            $loginUsername = $('.username'),
-            $loginPassword = $('.password'),
             $loginFields = $('.device-login-fields'),
             $loginBtn = $('.device-login-btn'),
             $feedsScreen = $('.feeds-screen'),
@@ -272,8 +238,6 @@
                   //Fade out the login form, starting with input fields
                   setTimeout(function() {
                     $loginFields.css({'-webkit-transform': 'translate(300px, -200px)', 'opacity': '0'});
-                    $loginUsername.css({'-webkit-transform': 'translate(300px, -200px)', 'opacity': '0'});
-                    $loginPassword.css({'-webkit-transform': 'translate(300px, -200px)', 'opacity': '0'});
 
                     //fade out the login btn and text after a pause
                     setTimeout(function() {
@@ -345,8 +309,6 @@
                         
                         $androidHeader.css({'opacity': '0'});
                         $loginFields.css({'-webkit-transform': 'translate(0px, 0px)'});
-                        $loginUsername.css({'-webkit-transform': 'translate(0px, 0px)'});
-                        $loginPassword.css({'-webkit-transform': 'translate(0px, 0px)'});
                         $loginBtn.css({'-webkit-transform': 'translate(0px, 0px)'});
                         
                         $feedsScreen.css({'-webkit-transform': 'translate(0px,0px)'});
@@ -393,12 +355,6 @@
       <div class="login-container">
         <img class="device-login-fields" src="android_login_fields.png">
         <img class="device-login-btn" src="android_login_btn.png">
-        <div class="username">
-          mango_cat
-        </div>
-        <div class="password">
-          Password
-        </div>
       </div>
       
       <!-- Header -->
