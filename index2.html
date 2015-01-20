@@ -66,21 +66,6 @@
          -o-transition: all .7s ease-in-out; /** Opera **/
          z-index: 9;
       }
-      .device-app-header {
-        position: absolute;
-        transform: rotate(-30deg) skew(12deg,2.5deg);
-        font-size: 13px;
-        top: 220px;
-        left: 50%;
-        margin-left: -271px;
-        margin-top: 36px;
-        z-index: 3;
-        letter-spacing: 5px;
-        text-transform: uppercase;
-        color: white;
-        display: none;
-        z-index: 10;
-      }
       
       /**/
       /* LOGIN SCREEN */
@@ -309,15 +294,29 @@
          -moz-transition: all .6s ease-in-out; /** Firefox **/
          -o-transition: all .6s ease-in-out; /** Opera **/
       }
-      .gate-screen div {
-        position: absolute;
-      }
       .gate-screen {
         z-index: 1;
         opacity: 0;
       }
       .gate-screen-added-overlay {
         z-index: 1;
+        opacity: 0;
+      }
+      
+      
+      
+      .header-container {
+        position: relative;
+        z-index: 10;
+      }
+      .header-container img {
+        width: 100%;
+        transition: all .6s ease-in-out;
+        -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+        -moz-transition: all .6s ease-in-out; /** Firefox **/
+        -o-transition: all .6s ease-in-out; /** Opera **/    
+      }
+      .android-header {
         opacity: 0;
       }
       
@@ -374,7 +373,6 @@
         var $logo = $('.device-logo'),
             $deviceBand1 = $('.device-band1'),
             $deviceBand2 = $('.device-band2'),
-            $deviceAppHeader = $('.device-app-header'),
             $loginContainer = $('.login-container'),
             $loginUsername = $('.username'),
             $loginPassword = $('.password'),
@@ -391,7 +389,8 @@
             $feedsLike = $('.feeds-like'),
             $feedsLike2 = $('.feeds-like2'),
             $gateScreen = $('.gate-screen'),
-            $gateScreenOverlay = $('.gate-screen-added-overlay ');
+            $gateScreenOverlay = $('.gate-screen-added-overlay '),
+            $androidHeader = $('.android-header');
         // setInterval(function() {
             
         //Pause before the start of all the animations
@@ -439,13 +438,13 @@
                   
                   //begin 2nd animation cycle 
                   setTimeout(function() {
-                    $deviceBand1.css({'width': '0'});
-                    $deviceBand1.fadeIn(100, function() {
-                      $deviceBand1.animate({'width': '277px'});
-                      $deviceAppHeader.fadeIn();
-                    });
-                    
-                    $deviceBand2.css({'top': '524px'});
+                    $androidHeader.css({'opacity': 0.7});
+                    // $deviceBand1.css({'width': '0'});
+                    // $deviceBand1.fadeIn(100, function() {
+                    //   $deviceBand1.animate({'width': '277px'});
+                    // });
+                    //
+                    // $deviceBand2.css({'top': '524px'});
                     $deviceBand2.fadeIn(100, function() {
                       $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(-154px,-332px)', 'background-color': '#00BBFF'});
                       
@@ -481,7 +480,6 @@
                           setTimeout(function() {
                             // $deviceBand1.fadeOut();
                             // $deviceBand2.css({'opacity': '0'});
-                            // $deviceAppHeader.fadeOut();
                             $feedsScreen.css({'opacity': '0'});
                             $gateScreen.css({'opacity': 0.7});
                             setTimeout(function() {
@@ -521,6 +519,7 @@
     
 <!-- ANDROID DEVICE -->
     <div class="android-container">
+     
       <!--Login Screen -->
       <div class="login-container">
         <img class="device-login-fields" src="android_login_fields.png">
@@ -539,6 +538,11 @@
         </div>
       </div>
       
+      <!-- Header -->
+      <div class="header-container">
+        <img class="android-header" src="android_header.png">
+        <img class="android-header-slider" src="android_header_slider.png">
+      </div>
       
       <!--Feeds Screen -->
       <div class="feeds-container">
@@ -552,8 +556,6 @@
         <img class="gate-screen" src="gate_screen.png">
         <img class="gate-screen-added-overlay" src="gate_screen_added_overlay.png">
       </div>
-
-      <div class="device-app-header">feed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gates</div>
       
       <img class="android-device" src="nexus_large.png">
       <img class="android-device-whitecover" src="nexus_whitecover_large.png">
