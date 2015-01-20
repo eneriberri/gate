@@ -246,7 +246,7 @@
         //Pause before the start of all the animations
         //1. Transition up logo then fade it out
         //2. Fade in login screen
-        //3. Transition up the login screen's components then fade them out
+        //3. Transition out the login screen elements
         setTimeout(function() {
               $logo.animate({'top': '-150px'}, 700, function() {
                 $logo.fadeOut(500, function() {
@@ -258,78 +258,68 @@
                   $loginFields.css({'opacity': '0.7'});
                   $loginBtn.css({'opacity': '0.7'});
                   
-                  //Fade out the form and start moving around the input fields and login btn
+                  //Fade out the login form, starting with input fields
                   setTimeout(function() {
-                    $loginFields.css({'-webkit-transform': 'translate(0px, -120px)'});
-                    $loginUsername.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
-                    $loginPassword.css({'-webkit-transform': 'rotate(-29deg) skew(15deg,0deg) translate(85px, -105px)'});
-                    //fade up the login btn and text up after a pause
+                    $loginFields.css({'-webkit-transform': 'translate(300px, -200px)', 'opacity': '0'});
+                    $loginUsername.css({'-webkit-transform': 'translate(300px, -200px)', 'opacity': '0'});
+                    $loginPassword.css({'-webkit-transform': 'translate(300px, -200px)', 'opacity': '0'});
+
+                    //fade out the login btn and text after a pause
                     setTimeout(function() {
-                      $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
-                      
-                      $loginUsername.css({'opacity': '0'});
-                      $loginPassword.css({'opacity': '0'});
-                      $loginFields.css({'opacity': '0'});
-
-                      setTimeout(function() {
-                        $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
-
-                        setTimeout(function() {
-                          $loginBtn.css({'-webkit-transform': 'translate(120px, -220px)', 'opacity': '0'});
-                        }, 400); //fade out last remaining login elements
-
-                      }, 500);
-                    }, 700); //ends login btn and fields fade up
+                      $loginBtn.css({'-webkit-transform': 'translate(300px, -200px)', 'opacity': '0'});
+                    }, 200); //ends login btn and fields fade up
 
                   }, 1000); //end login screen animations
                   
-                  //begin 2nd animation cycle 
-                  setTimeout(function() {
-                    $androidHeader.css({'opacity': 0.7});
-
-                      /*
-                       Feeds screen begins here
-                      */
-                      $feedsScreen.css({'opacity': 0.6});
-                      //Display liking functionality and increase the counter on the screen
-                      setTimeout(function() {
-                        // $feedsLike.css({'opacity': 0.5});
-                        setTimeout(function() {
-                          // $feedsCounter.css({'opacity': 1});
-                        }, 500);
-                      }, 1500);
-
-                      setTimeout(function() {
-                        // $feedsLike2.css({'opacity': 0.5});
-                        // setTimeout(function() {
-                        //   $feedsCounter2.css({'opacity': 0.7});
-                        // }, 500);
-                      }, 3000);
-
-                      //after band2 finishes animating to the top, have it slide to the right
-                      setTimeout(function() {
-
-                        setTimeout(function() {
-
-                          //so why fadeout vs opacity: 0 ??
-                          //because the css property transition makes fadeOut break - on elements with
-                          //css of transition set, to achieve a fading effect, i am doing opacity: 0
-                          setTimeout(function() {
-                            $feedsScreen.css({'opacity': '0'});
-                            $gateScreen.css({'opacity': 0.7});
-                            setTimeout(function() {
-                              $gateScreenOverlay.css({'opacity': 0.9});
-                            }, 1500);
-                            
-                          }, 900);
-
-                        }, 900);
-
-
-                      },1000);
-                      
-
-                  }, 3000); //ends the second animation cycle
+                  
+                  
+                  // //begin 2nd animation cycle
+//                   setTimeout(function() {
+//                     $androidHeader.css({'opacity': 0.7});
+//
+//                       /*
+//                        Feeds screen begins here
+//                       */
+//                       $feedsScreen.css({'opacity': 0.6});
+//                       //Display liking functionality and increase the counter on the screen
+//                       setTimeout(function() {
+//                         // $feedsLike.css({'opacity': 0.5});
+//                         setTimeout(function() {
+//                           // $feedsCounter.css({'opacity': 1});
+//                         }, 500);
+//                       }, 1500);
+//
+//                       setTimeout(function() {
+//                         // $feedsLike2.css({'opacity': 0.5});
+//                         // setTimeout(function() {
+//                         //   $feedsCounter2.css({'opacity': 0.7});
+//                         // }, 500);
+//                       }, 3000);
+//
+//                       //after band2 finishes animating to the top, have it slide to the right
+//                       setTimeout(function() {
+//
+//                         setTimeout(function() {
+//
+//                           //so why fadeout vs opacity: 0 ??
+//                           //because the css property transition makes fadeOut break - on elements with
+//                           //css of transition set, to achieve a fading effect, i am doing opacity: 0
+//                           setTimeout(function() {
+//                             $feedsScreen.css({'opacity': '0'});
+//                             $gateScreen.css({'opacity': 0.7});
+//                             setTimeout(function() {
+//                               $gateScreenOverlay.css({'opacity': 0.9});
+//                             }, 1500);
+//
+//                           }, 900);
+//
+//                         }, 900);
+//
+//
+//                       },1000);
+//
+//
+//                   }, 3000); //ends the second animation cycle
                   
 
                 }); //gate logo fadeOut end
