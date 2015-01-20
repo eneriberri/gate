@@ -124,22 +124,7 @@
         z-index: 1;
         opacity: 0;
       }
-      .feeds-counter {
-        z-index: 2;
-        opacity: 0;
-      }
-      .feeds-counter2 {
-        z-index: 2;
-        opacity: 0;
-      }
-      .feeds-like {
-        z-index: 2;
-        opacity: 0;
-      }
-      .feeds-like2 {
-        z-index: 2;
-        opacity: 0;
-      }
+
       
       
       .gate-container {
@@ -243,8 +228,6 @@
             $loginFields = $('.device-login-fields'),
             $loginBtn = $('.device-login-btn'),
             $feedsScreen = $('.feeds-screen'),
-            $feedsLike = $('.feeds-like'),
-            $feedsLike2 = $('.feeds-like2'),
             $gateScreen = $('.gate-screen'),
             $gateScreenOverlay = $('.gate-screen-added-overlay '),
             $androidHeaderContainer = $('.header-container'),
@@ -254,13 +237,13 @@
         // setInterval(function() {
             
         //Pause before the start of all the animations
-        //** Initial state: have the android header blue slider be out of the way to the left
+        //** Initial state: have the android header blue slider & gate overlay be out of the way to the left
         //1. Transition up logo then fade it out
         //2. Fade in login screen
         //3. Transition out the login screen elements
           
         $androidHeaderSlider.css({'-webkit-transform': 'translate(-181px,98px)'});
-        
+        $gateScreenOverlay.css({'-webkit-transform': 'translate(-140px,80px)'});
         setTimeout(function() {
               $logo.animate({'top': '-150px'}, 700, function() {
                 $logo.fadeOut(500, function() {
@@ -297,16 +280,7 @@
                        Feeds screen begins here
                       */
                       $feedsScreen.css({'opacity': 0.6});
-                      //Display liking functionality and increase the counter on the screen
-                      setTimeout(function() {
-                        // $feedsLike.css({'opacity': 0.5});
-                      }, 1500);
 
-                      setTimeout(function() {
-                        // $feedsLike2.css({'opacity': 0.5});
-                      }, 2000);
-
-                      //after band2 finishes animating to the top, have it slide to the right
                       setTimeout(function() {
 
                         setTimeout(function() {
@@ -323,8 +297,12 @@
                             
                             $gateScreen.css({'opacity': 0.7});
                             setTimeout(function() {
-                              // $androidHeaderContainer.css({'opacity': 0.4});
-                              // $gateScreenOverlay.css({'opacity': 0.9});
+                              $gateScreenOverlay.css({'opacity': 0.9, '-webkit-transform': 'translate(0px,0px)'});
+                              //pause for a bit so overlay has time to come in before fading the header
+                              setTimeout(function() {
+                                $androidHeaderContainer.css({'opacity': 0.4});
+                              }, 300);
+                              
                             }, 1500);
 
                           }, 900);
@@ -380,8 +358,6 @@
       
       <!--Feeds Screen -->
       <div class="feeds-container">
-        <img class="feeds-like" src="android_blue_like.png">
-        <img class="feeds-like2" src="android_blue_like2.png">
         <img class="feeds-screen" src="android_feeds_screen.png">
       </div>
       
