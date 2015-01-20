@@ -105,89 +105,6 @@
       }
       
       
-      /*
-      *
-      * Profile Screen
-      *
-      */      
-      .profile-container {
-        position: relative;
-        z-index: 1;
-      }
-      .profile-container div {
-        position: absolute;
-      }
-      .device-profile-top {
-        width: 905px;
-        position: absolute;
-        left: 50%;
-        margin-left: -461px;
-        top: -79px;
-        z-index: 1;
-        opacity: 0;
-        transition: all .6s ease-in-out;
-         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all .6s ease-in-out; /** Firefox **/
-         -o-transition: all .6s ease-in-out; /** Opera **/
-      }
-      .device-profile-pin {
-        width: 905px;
-        position: absolute;
-        left: 50%;
-        margin-left: -461px;
-        top: -79px;
-        z-index: 1;
-        opacity: 0;
-        transition: all .6s ease-in-out;
-         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all .6s ease-in-out; /** Firefox **/
-         -o-transition: all .6s ease-in-out; /** Opera **/
-      }
-      .device-profile-bottom {
-        width: 905px;
-        position: absolute;
-        left: 50%;
-        margin-left: -461px;
-        top: -79px;
-        z-index: 1;
-        opacity: 0;
-        transition: all .6s ease-in-out;
-         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all .6s ease-in-out; /** Firefox **/
-         -o-transition: all .6s ease-in-out; /** Opera **/
-      }
-      .location {
-        top: 370px;
-        left: 50%;
-        margin-left: -99px;
-        z-index: 1;
-        letter-spacing: 1px;
-        font-size: 11px;
-        transform: rotate(-30.5deg) skew(15deg,0deg);
-        color: #a0a5aa;
-        opacity: 0;
-        transition: all .6s ease-in-out;
-         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all .6s ease-in-out; /** Firefox **/
-         -o-transition: all .6s ease-in-out; /** Opera **/
-      }
-      .about {
-        top: 353px;
-        left: 50%;
-        margin-left: -69px;
-        z-index: 1;
-        font-size: 11px;
-        transform: rotate(-25.2deg) skew(15deg,-5.5deg);
-        color: #a0a5aa;
-        width: 19%;
-        line-height: 25px;
-        opacity: 0;
-        transition: all .6s ease-in-out;
-         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all .6s ease-in-out; /** Firefox **/
-         -o-transition: all .6s ease-in-out; /** Opera **/
-      }
-      
       
       .feeds-container {
         position: relative;
@@ -318,11 +235,6 @@
             $loginPassword = $('.password'),
             $loginFields = $('.device-login-fields'),
             $loginBtn = $('.device-login-btn'),
-            $profileLoc = $('.location'),
-            $profileAbout = $('.about'),
-            $profileTop = $('.device-profile-top'),
-            $profilePin = $('.device-profile-pin'),
-            $profileBottom = $('.device-profile-bottom'),
             $feedsScreen = $('.feeds-screen'),
             $feedsLike = $('.feeds-like'),
             $feedsLike2 = $('.feeds-like2'),
