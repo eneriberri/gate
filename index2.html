@@ -209,18 +209,12 @@
         display: none;
       }
       
-      
-/*      .test {
-        width: 300px;
-        height: 300px;
-        position: relative;
-        z-index: 5;
-        background-color: orange;
-      }*/
+
     </style>
     
     <script>
       $(document).ready(function() {
+
         var $logo = $('.device-logo'),
             $loginContainer = $('.login-container'),
             $loginUsername = $('.username'),
@@ -234,8 +228,11 @@
             $androidHeader = $('.android-header'),
             $androidHeaderSlider = $('.android-header-slider'),
             screenWidth = $(window).width();
-        // setInterval(function() {
-            
+
+        doAnimation();
+        setInterval(doAnimation, 13000);
+        
+        function doAnimation() {
         //Pause before the start of all the animations
         //** Initial state: have the android header blue slider & gate overlay be out of the way to the left
         //1. Transition up logo then fade it out
@@ -245,7 +242,7 @@
         $androidHeaderSlider.css({'-webkit-transform': 'translate(-181px,98px)'});
         $gateScreenOverlay.css({'-webkit-transform': 'translate(-140px,80px)'});
         setTimeout(function() {
-              $logo.animate({'top': '-150px'}, 700, function() {
+              $logo.animate({'top': '-200px'}, 600, function() {
                 $logo.fadeOut(500, function() {
 
                   //**
@@ -266,7 +263,7 @@
                       $loginBtn.css({'-webkit-transform': 'translate(300px, -200px)', 'opacity': '0'});
                     }, 200); //ends login btn and fields fade up
 
-                  }, 1000); //end login screen animations
+                  }, 1200); //end login screen animations
                   
                   
                   
@@ -329,29 +326,35 @@
                         $androidHeaderSlider.css({'-webkit-transform': 'translate(-181px,98px)'});
                         $gateScreenOverlay.css({'-webkit-transform': 'translate(-140px,80px)'});
                         
-                        $androidHeaderContainer.css({'opacity': '0'});
+                        $androidHeader.css({'opacity': '0'});
+                        $loginFields.css({'-webkit-transform': 'translate(0px, 0px)'});
+                        $loginUsername.css({'-webkit-transform': 'translate(0px, 0px)'});
+                        $loginPassword.css({'-webkit-transform': 'translate(0px, 0px)'});
+                        $loginBtn.css({'-webkit-transform': 'translate(0px, 0px)'});
+                        
+                        $feedsScreen.css({'-webkit-transform': 'translate(0px,0px)'});
+                        
                         setTimeout(function() {
                           $logo.css({'top': 0}).fadeIn();
-                        },700);
+                        },800);
                         
-                      },600);
+                      },800);
                       
                     }
         
                     reset();
                     
-                    
-                    console.log('test');
-                  },8000);
+                  },9000);
                   
                 }); //gate logo fadeOut end
               }); //gate logo animate up end
         
         
  
-        }, 1000); //parent setTimeout
-    
-      // }, 12000);
+        }, 700); //parent setTimeout
+        
+      }
+
       });
     </script>
   </head>
