@@ -318,10 +318,37 @@
 
                   }, 1500); //ends the second animation cycle
                   
-
+                  
+                  //Reset positions after completion of the full animation cycle
+                  setTimeout(function() {
+                    var reset = function() {
+                      $gateScreen.css({'opacity': '0'});
+                      $gateScreenOverlay.css({'opacity': '0'});
+                      
+                      setTimeout(function() {
+                        $androidHeaderSlider.css({'-webkit-transform': 'translate(-181px,98px)'});
+                        $gateScreenOverlay.css({'-webkit-transform': 'translate(-140px,80px)'});
+                        
+                        $androidHeaderContainer.css({'opacity': '0'});
+                        setTimeout(function() {
+                          $logo.css({'top': 0}).fadeIn();
+                        },700);
+                        
+                      },600);
+                      
+                    }
+        
+                    reset();
+                    
+                    
+                    console.log('test');
+                  },8000);
+                  
                 }); //gate logo fadeOut end
               }); //gate logo animate up end
-            
+        
+        
+ 
         }, 1000); //parent setTimeout
     
       // }, 12000);
