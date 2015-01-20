@@ -247,7 +247,8 @@
             $gateScreen = $('.gate-screen'),
             $gateScreenOverlay = $('.gate-screen-added-overlay '),
             $androidHeader = $('.android-header'),
-            $androidHeaderSlider = $('.android-header-slider');
+            $androidHeaderSlider = $('.android-header-slider'),
+            screenWidth = $(window).width();
         // setInterval(function() {
             
         //Pause before the start of all the animations
@@ -313,7 +314,10 @@
                           //css of transition set, to achieve a fading effect, i am doing opacity: 0
                           setTimeout(function() {
                             $feedsScreen.css({'opacity': '0'}); //177px, -95px
-                            $androidHeaderSlider.css({'-webkit-transform': 'translate(177px,-95px)'});
+                            var transX = screenWidth * .0921875 + 'px';
+                            var transY = screenWidth * -0.049479166666666664 + 'px';
+                            $androidHeaderSlider.css({'-webkit-transform': 'translate('+transX+','+transY+')'});
+                            // $androidHeaderSlider.css({'-webkit-transform': 'translate(177px,-95px)'});
                             // $androidHeaderSlider.css({'-webkit-transform': 'translate(133px,-72px)'});
                             $gateScreen.css({'opacity': 0.7});
                             setTimeout(function() {
