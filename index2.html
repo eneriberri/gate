@@ -178,6 +178,12 @@
       .android-header {
         opacity: 0;
       }
+      .android-header-slider {
+        transition: all .7s ease-in-out;
+        -webkit-transition: all .7s ease-in-out; /** Chrome & Safari **/
+        -moz-transition: all .7s ease-in-out; /** Firefox **/
+        -o-transition: all .7s ease-in-out; /** Opera **/    
+      }
       
 /*GATE HEADER AND TAGLINE*/
       .gate-header {
@@ -240,13 +246,18 @@
             $feedsLike2 = $('.feeds-like2'),
             $gateScreen = $('.gate-screen'),
             $gateScreenOverlay = $('.gate-screen-added-overlay '),
-            $androidHeader = $('.android-header');
+            $androidHeader = $('.android-header'),
+            $androidHeaderSlider = $('.android-header-slider');
         // setInterval(function() {
             
         //Pause before the start of all the animations
+        //** Initial state: have the android header blue slider be out of the way to the left
         //1. Transition up logo then fade it out
         //2. Fade in login screen
         //3. Transition out the login screen elements
+          
+        $androidHeaderSlider.css({'-webkit-transform': 'translate(-181px,98px)'});
+        
         setTimeout(function() {
               $logo.animate({'top': '-150px'}, 700, function() {
                 $logo.fadeOut(500, function() {
@@ -273,53 +284,54 @@
                   
                   
                   
-                  // //begin 2nd animation cycle
-//                   setTimeout(function() {
-//                     $androidHeader.css({'opacity': 0.7});
-//
-//                       /*
-//                        Feeds screen begins here
-//                       */
-//                       $feedsScreen.css({'opacity': 0.6});
-//                       //Display liking functionality and increase the counter on the screen
-//                       setTimeout(function() {
-//                         // $feedsLike.css({'opacity': 0.5});
-//                         setTimeout(function() {
-//                           // $feedsCounter.css({'opacity': 1});
-//                         }, 500);
-//                       }, 1500);
-//
-//                       setTimeout(function() {
-//                         // $feedsLike2.css({'opacity': 0.5});
-//                         // setTimeout(function() {
-//                         //   $feedsCounter2.css({'opacity': 0.7});
-//                         // }, 500);
-//                       }, 3000);
-//
-//                       //after band2 finishes animating to the top, have it slide to the right
-//                       setTimeout(function() {
-//
-//                         setTimeout(function() {
-//
-//                           //so why fadeout vs opacity: 0 ??
-//                           //because the css property transition makes fadeOut break - on elements with
-//                           //css of transition set, to achieve a fading effect, i am doing opacity: 0
-//                           setTimeout(function() {
-//                             $feedsScreen.css({'opacity': '0'});
-//                             $gateScreen.css({'opacity': 0.7});
-//                             setTimeout(function() {
-//                               $gateScreenOverlay.css({'opacity': 0.9});
-//                             }, 1500);
-//
-//                           }, 900);
-//
-//                         }, 900);
-//
-//
-//                       },1000);
-//
-//
-//                   }, 3000); //ends the second animation cycle
+                  //begin 2nd animation cycle
+                  setTimeout(function() {
+                    
+                    $androidHeader.css({'opacity': 0.7});
+                    $androidHeaderSlider.css({'opacity': 0.7, '-webkit-transform': 'translate(0px,0px)'});
+                      /*
+                       Feeds screen begins here
+                      */
+                      $feedsScreen.css({'opacity': 0.6});
+                      //Display liking functionality and increase the counter on the screen
+                      setTimeout(function() {
+                        // $feedsLike.css({'opacity': 0.5});
+                        setTimeout(function() {
+                          // $feedsCounter.css({'opacity': 1});
+                        }, 500);
+                      }, 1500);
+
+                      setTimeout(function() {
+                        // $feedsLike2.css({'opacity': 0.5});
+                        // setTimeout(function() {
+                        //   $feedsCounter2.css({'opacity': 0.7});
+                        // }, 500);
+                      }, 3000);
+
+                      //after band2 finishes animating to the top, have it slide to the right
+                      setTimeout(function() {
+
+                        setTimeout(function() {
+
+                          //so why fadeout vs opacity: 0 ??
+                          //because the css property transition makes fadeOut break - on elements with
+                          //css of transition set, to achieve a fading effect, i am doing opacity: 0
+                          setTimeout(function() {
+                            $feedsScreen.css({'opacity': '0'});
+                            $gateScreen.css({'opacity': 0.7});
+                            setTimeout(function() {
+                              $gateScreenOverlay.css({'opacity': 0.9});
+                            }, 1500);
+
+                          }, 900);
+
+                        }, 900);
+
+
+                      },1000);
+
+
+                  }, 1500); //ends the second animation cycle
                   
 
                 }); //gate logo fadeOut end
