@@ -36,23 +36,6 @@
         width: 100%;
         z-index: 9;
       }
-      .device-band2 {
-      	width: 304px;
-      	height: 10px;
-      	background: #00070a;
-        -ms-transform: rotate(-32deg) skew(12deg,1deg); /* IE 9 */
-        -webkit-transform: rotate(-32deg) skew(12deg,1deg); /* Chrome, Safari, Opera */
-        transform: rotate(-32deg) skew(12deg,1deg);
-        position: absolute;
-        left: 43%;
-        top: 437px;
-        display: none;
-        transition: all .7s ease-in-out;
-         -webkit-transition: all .7s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all .7s ease-in-out; /** Firefox **/
-         -o-transition: all .7s ease-in-out; /** Opera **/
-         z-index: 9;
-      }
       
       /**/
       /* LOGIN SCREEN */
@@ -358,7 +341,6 @@
     <script>
       $(document).ready(function() {
         var $logo = $('.device-logo'),
-            $deviceBand2 = $('.device-band2'),
             $loginContainer = $('.login-container'),
             $loginUsername = $('.username'),
             $loginPassword = $('.password'),
@@ -425,12 +407,7 @@
                   //begin 2nd animation cycle 
                   setTimeout(function() {
                     $androidHeader.css({'opacity': 0.7});
-                    //
-                    // $deviceBand2.css({'top': '524px'});
-                    $deviceBand2.fadeIn(100, function() {
-                      $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(-154px,-332px)', 'background-color': '#00BBFF'});
-                      
-                      
+
                       /*
                        Feeds screen begins here
                       */
@@ -452,7 +429,6 @@
 
                       //after band2 finishes animating to the top, have it slide to the right
                       setTimeout(function() {
-                        $deviceBand2.css({'-webkit-transform': 'rotate(-32deg) skew(12deg,4deg) scale(.43,1) translate(187px,-332px)'});
 
                         setTimeout(function() {
 
@@ -460,7 +436,6 @@
                           //because the css property transition makes fadeOut break - on elements with
                           //css of transition set, to achieve a fading effect, i am doing opacity: 0
                           setTimeout(function() {
-                            // $deviceBand2.css({'opacity': '0'});
                             $feedsScreen.css({'opacity': '0'});
                             $gateScreen.css({'opacity': 0.7});
                             setTimeout(function() {
@@ -474,7 +449,6 @@
 
                       },1000);
                       
-                    });
 
                   }, 3000); //ends the second animation cycle
                   
@@ -541,7 +515,6 @@
       <img class="android-device" src="nexus_large.png">
       <img class="android-device-whitecover" src="nexus_whitecover_large.png">
       <img class="device-logo" src="gate_logo.png">
-      <div class="device-band2"></div>
     </div>
     
     <!-- <div class="dl-app-container">
