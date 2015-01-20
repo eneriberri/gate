@@ -290,6 +290,9 @@
                           //css of transition set, to achieve a fading effect, i am doing opacity: 0
                           setTimeout(function() {
                             $feedsScreen.css({'-webkit-transform': 'translate(142px,-90px)', 'opacity': '0'});
+                            
+                            
+                            //Begin Gate Screen animation
                             //translate slider to the right relative to window width
                             var transX = screenWidth * .0921875 + 'px';
                             var transY = screenWidth * -0.049479166666666664 + 'px';
@@ -303,7 +306,7 @@
                                 $androidHeaderContainer.css({'opacity': 0.4});
                               }, 300);
                               
-                            }, 1500);
+                            }, 2500);
 
                           }, 900);
 
