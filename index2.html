@@ -11,6 +11,11 @@
         background: #181E21;
       }
       
+      a {
+        text-decoration: none;
+        color: #0b9ad2;
+      }
+      
 /*ANDROID DEVICE*/
       .android-container {
         width: 65%;
@@ -189,7 +194,8 @@
         letter-spacing: 2px;
         text-transform: none;
         font-family: 'Lora', serif;
-        margin-left: 58px;
+        margin-left: 18px;
+        margin-top: 5px;
       }
 /*      .separator {
         background-color: #00BBFF;
@@ -211,6 +217,13 @@
         border-radius: 3px;
         margin-top: 25px;
         opacity: 0.4;
+        transition: all .8s ease-in-out;
+        -webkit-transition: all .8s ease-in-out; /** Chrome & Safari **/
+        -moz-transition: all .8s ease-in-out; /** Firefox **/
+        -o-transition: all .8s ease-in-out; /** Opera **/   
+      }
+      .dl-android:hover {
+        opacity: 1;
       }
       
 
@@ -368,7 +381,8 @@
     <div class="gate-header">
       gate
       <div class="tagline">
-        Lorem ipsum dolor sit amet, consectetur adipiscing el
+        <!-- Lorem ipsum dolor sit amet, consectetur adipiscing el -->
+        Connections made real. Available now in the <a href="https://play.google.com/store/apps/details?id=com.unlock.gate">Google Play store.</a>
       </div>
     </div>
     
@@ -410,7 +424,7 @@
     </div>
     
     <div class="dl-app-container">
-      <img class="dl-android" src="badge_android.png">
+      <a href="https://play.google.com/store/apps/details?id=com.unlock.gate"><img class="dl-android" src="badge_android.png"></a>
     </div>
 
   </body>
