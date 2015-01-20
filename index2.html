@@ -36,19 +36,6 @@
         width: 100%;
         z-index: 9;
       }
-      .device-band1 {
-      	width: 277px;
-      	height: 40px;
-      	background: #181E21;
-        -ms-transform: rotate(-32deg) skew(10deg,4.5deg); /* IE 9 */
-        -webkit-transform: rotate(-32deg) skew(10deg,4.5deg); /* Chrome, Safari, Opera */
-        transform: rotate(-32deg) skew(10deg,4.5deg);
-        position: absolute;
-        left: 18.2%;
-        top: 245px;
-        z-index: 9;
-        display: none;
-      }
       .device-band2 {
       	width: 304px;
       	height: 10px;
@@ -371,7 +358,6 @@
     <script>
       $(document).ready(function() {
         var $logo = $('.device-logo'),
-            $deviceBand1 = $('.device-band1'),
             $deviceBand2 = $('.device-band2'),
             $loginContainer = $('.login-container'),
             $loginUsername = $('.username'),
@@ -439,10 +425,6 @@
                   //begin 2nd animation cycle 
                   setTimeout(function() {
                     $androidHeader.css({'opacity': 0.7});
-                    // $deviceBand1.css({'width': '0'});
-                    // $deviceBand1.fadeIn(100, function() {
-                    //   $deviceBand1.animate({'width': '277px'});
-                    // });
                     //
                     // $deviceBand2.css({'top': '524px'});
                     $deviceBand2.fadeIn(100, function() {
@@ -478,7 +460,6 @@
                           //because the css property transition makes fadeOut break - on elements with
                           //css of transition set, to achieve a fading effect, i am doing opacity: 0
                           setTimeout(function() {
-                            // $deviceBand1.fadeOut();
                             // $deviceBand2.css({'opacity': '0'});
                             $feedsScreen.css({'opacity': '0'});
                             $gateScreen.css({'opacity': 0.7});
@@ -560,7 +541,6 @@
       <img class="android-device" src="nexus_large.png">
       <img class="android-device-whitecover" src="nexus_whitecover_large.png">
       <img class="device-logo" src="gate_logo.png">
-      <div class="device-band1"></div>
       <div class="device-band2"></div>
     </div>
     
