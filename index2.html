@@ -261,6 +261,7 @@
          -o-transition: all .6s ease-in-out; /** Opera **/
       }
       
+      
       .feeds-container {
         position: relative;
         z-index: 9;
@@ -297,6 +298,28 @@
       }
       
       
+      .gate-container {
+        position: relative;
+        z-index: 9;
+      }
+      .gate-container img {
+        width: 100%;
+        transition: all .6s ease-in-out;
+         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .6s ease-in-out; /** Firefox **/
+         -o-transition: all .6s ease-in-out; /** Opera **/
+      }
+      .gate-screen div {
+        position: absolute;
+      }
+      .gate-screen {
+        z-index: 1;
+        opacity: 0;
+      }
+      .gate-screen-added-overlay {
+        z-index: 1;
+        opacity: 0;
+      }
       
 /*GATE HEADER AND TAGLINE*/
       .gate-header {
@@ -367,8 +390,8 @@
             $feedsScreen = $('.feeds-screen'),
             $feedsLike = $('.feeds-like'),
             $feedsLike2 = $('.feeds-like2'),
-            $feedsCounter = $('.feeds-counter'),
-            $feedsCounter2 = $('.feeds-counter2');
+            $gateScreen = $('.gate-screen'),
+            $gateScreenOverlay = $('.gate-screen-added-overlay ');
         // setInterval(function() {
             
         //Pause before the start of all the animations
@@ -433,14 +456,14 @@
                       $feedsScreen.css({'opacity': 0.6});
                       //Display liking functionality and increase the counter on the screen
                       setTimeout(function() {
-                        $feedsLike.css({'opacity': 0.5});
+                        // $feedsLike.css({'opacity': 0.5});
                         setTimeout(function() {
                           // $feedsCounter.css({'opacity': 1});
                         }, 500);
                       }, 1500);
 
                       setTimeout(function() {
-                        $feedsLike2.css({'opacity': 0.5});
+                        // $feedsLike2.css({'opacity': 0.5});
                         // setTimeout(function() {
                         //   $feedsCounter2.css({'opacity': 0.7});
                         // }, 500);
@@ -459,6 +482,7 @@
                             $deviceBand1.fadeOut();
                             $deviceBand2.css({'opacity': '0'});
                             $deviceAppHeader.fadeOut();
+                            // $feedsScreen.css({'opacity': '0'});
                           }, 900);
 
                         }, 900);
@@ -572,14 +596,13 @@
       <div class="feeds-container">
         <img class="feeds-like" src="android_blue_like.png">
         <img class="feeds-like2" src="android_blue_like2.png">
-        <img class="feeds-counter" src="android_like_count.png">
-        <img class="feeds-counter2" src="android_like_count2.png">
         <img class="feeds-screen" src="android_feeds_screen.png">
       </div>
       
       <!--Gate Screen -->
       <div class="gate-container">
-        <img class="gate-screen" src="gate_screen.png">
+        <!-- <img class="gate-screen" src="gate_screen.png"> -->
+        <img class="gate-screen-added-overlay" src="gate_screen_added_overlay.png">
       </div>
 
       <div class="device-app-header">feed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gates</div>
