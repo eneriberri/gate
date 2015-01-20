@@ -103,34 +103,6 @@
          -o-transition: all .6s ease-in-out; /** Opera **/
          display: none;
       }
-      .login-btn-text {
-        top: 446px;
-        left: 50%;
-        margin-left: -19px;
-/*        z-index: 1;*/
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        font-size: 16px;
-        transform: rotate(-30deg) skew(16deg,0deg);
-        color: #00070a;
-        transition: all .6s ease-in-out;
-         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all .6s ease-in-out; /** Firefox **/
-         -o-transition: all .6s ease-in-out; /** Opera **/
-      }
-      .forgot-pw {
-        top: 477px;
-        left: 50%;
-        margin-left: -18px;
-/*        z-index: 1;*/
-        font-size: 11px;
-        transform: rotate(-30.5deg) skew(16.5deg,0deg);
-        color: #0B9AD2;
-        transition: all .6s ease-in-out;
-         -webkit-transition: all .6s ease-in-out; /** Chrome & Safari **/
-         -moz-transition: all .6s ease-in-out; /** Firefox **/
-         -o-transition: all .6s ease-in-out; /** Opera **/
-      }
       
       
       /*
@@ -344,7 +316,6 @@
             $loginContainer = $('.login-container'),
             $loginUsername = $('.username'),
             $loginPassword = $('.password'),
-            $loginBtnText = $('.login-btn-text'),
             $loginFields = $('.device-login-fields'),
             $loginBtn = $('.device-login-btn'),
             $loginForgotPw = $('.forgot-pw'),
@@ -384,19 +355,17 @@
                     //fade up the login btn and text up after a pause
                     setTimeout(function() {
                       $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
-                      $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
+                      
                       $loginUsername.css({'opacity': '0'});
                       $loginPassword.css({'opacity': '0'});
                       $loginFields.css({'opacity': '0'});
 
                       setTimeout(function() {
                         $loginBtn.css({'-webkit-transform': 'translate(0px, -120px)'});
-                        $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(93px, -105px)'});
                         $loginForgotPw.css({'-webkit-transform': 'rotate(-32deg) skew(16.5deg,0deg) translate(150px, 0px)', 'color': 'transparent'});
 
                         setTimeout(function() {
                           $loginBtn.css({'-webkit-transform': 'translate(120px, -220px)', 'opacity': '0'});
-                          $loginBtnText.css({'-webkit-transform': 'rotate(-30deg) skew(16deg,0deg) translate(245px, -131px)', 'opacity': '0'});
                         }, 400); //fade out last remaining login elements
 
                       }, 500);
@@ -485,12 +454,12 @@
         <div class="password">
           Password
         </div>
-        <div class="login-btn-text">
+        <!-- <div class="login-btn-text">
           Login
         </div>
         <div class="forgot-pw">
           Forgot your password?
-        </div>
+        </div> -->
       </div>
       
       <!-- Header -->
