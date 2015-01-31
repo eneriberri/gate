@@ -209,11 +209,11 @@
             $androidHeader = $('.android-header'),
             $androidHeaderSlider = $('.android-header-slider'),
             screenWidth = $(window).width();
-
+        
+        //animation positions that are used repeatedly
         var animationPos = {
           leftSlider: {'transform': 'translate(-181px,98px)', '-webkit-transform': 'translate(-181px,98px)'},
           leftOverlay: {'transform': 'translate(-140px,80px)', '-webkit-transform': 'translate(-140px,80px)'},
-          moveUp: {'top': '-200px'},
           sheer: {'opacity': '0.7'},
           transparent: {'opacity': '0'},
           loginMoveOut: {'transform': 'translate(300px, -200px)', '-webkit-transform': 'translate(300px, -200px)'},
@@ -234,7 +234,7 @@
         $androidHeaderSlider.css(animationPos.leftSlider);
         $gateScreenOverlay.css(animationPos.leftOverlay);
         setTimeout(function() {
-              $logo.animate(animationPos.moveUp, 600, function() {
+              $logo.animate({'top': '-200px'}, 600, function() {
                 $logo.fadeOut(500, function() {
 
                   //**
@@ -287,7 +287,7 @@
                             
                             $gateScreen.css(animationPos.sheer);
                             setTimeout(function() {
-                              $gateScreenOverlay.css({'opacity': 0.9, '-webkit-transform': 'translate(0px,0px)'});
+                              $gateScreenOverlay.css({'opacity': 0.9}).css(animationPos.translateReset);
                               //pause for a bit so overlay has time to come in before fading the header
                               setTimeout(function() {
                                 $androidHeaderContainer.css({'opacity': 0.4});
@@ -313,8 +313,8 @@
                       $gateScreenOverlay.css(animationPos.transparent);
                       
                       setTimeout(function() {
-                        $androidHeaderSlider.css({'-webkit-transform': 'translate(-181px,98px)'});
-                        $gateScreenOverlay.css({'-webkit-transform': 'translate(-140px,80px)', 'opacity': '0'});
+                        $androidHeaderSlider.css(animationPos.leftSlider);
+                        $gateScreenOverlay.css(animationPos.leftOverlay).css(animationPos.transparent);
                         
                         $androidHeader.css(animationPos.transparent);
                         $loginFields.css(animationPos.translateReset);
