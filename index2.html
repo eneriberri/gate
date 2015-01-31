@@ -304,7 +304,7 @@
                             var transY = screenWidth * -0.049479166666666664 + 'px';
                             $androidHeaderSlider.css({'-webkit-transform': 'translate('+transX+','+transY+')'});
                             
-                            $gateScreen.css({'opacity': 0.7});
+                            $gateScreen.css(animationPos.sheer);
                             setTimeout(function() {
                               $gateScreenOverlay.css({'opacity': 0.9, '-webkit-transform': 'translate(0px,0px)'});
                               //pause for a bit so overlay has time to come in before fading the header
@@ -328,18 +328,18 @@
                   //Reset positions after completion of the full animation cycle
                   setTimeout(function() {
                     var reset = function() {
-                      $gateScreen.css({'opacity': '0'});
-                      $gateScreenOverlay.css({'opacity': '0'});
+                      $gateScreen.css(animationPos.transparent);
+                      $gateScreenOverlay.css(animationPos.transparent);
                       
                       setTimeout(function() {
                         $androidHeaderSlider.css({'-webkit-transform': 'translate(-181px,98px)'});
                         $gateScreenOverlay.css({'-webkit-transform': 'translate(-140px,80px)', 'opacity': '0'});
                         
-                        $androidHeader.css({'opacity': '0'});
-                        $loginFields.css({'-webkit-transform': 'translate(0px, 0px)'});
-                        $loginBtn.css({'-webkit-transform': 'translate(0px, 0px)'});
+                        $androidHeader.css(animationPos.transparent);
+                        $loginFields.css(animationPos.translateReset);
+                        $loginBtn.css(animationPos.translateReset);
                         
-                        $feedsScreen.css({'-webkit-transform': 'translate(0px,0px)'});
+                        $feedsScreen.css(animationPos.translateReset);
                         
                         setTimeout(function() {
                           $logo.css({'top': 0}).fadeIn();
