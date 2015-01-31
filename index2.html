@@ -210,18 +210,6 @@
         -moz-transform: translate(0px, 0px);
         -o-transform: translate(0px, 0px);
       }
-      .left-slider {
-        transform: translate(-181px,98px);
-        -webkit-transform: translate(-181px,98px);
-        -moz-transform: translate(-181px,98px);
-        -o-transform: translate(-181px,98px);
-      }
-      .left-overlay {
-        transform: translate(-140px,80px);
-        -webkit-transform: translate(-140px,80px);
-        -moz-transform: translate(-140px,80px);
-        -o-transform: translate(-140px,80px);
-      }
 
 
     </style>
@@ -243,6 +231,11 @@
 
         var animationPos = {
           leftSlider: {'transform': 'translate(-181px,98px)', '-webkit-transform': 'translate(-181px,98px)'},
+          leftOverlay: {'transform': 'translate(-140px,80px)', '-webkit-transform': 'translate(-140px,80px)'},
+          moveUp: {'top': '-200px'},
+          sheer: {'opacity': '0.7'},
+          transparent: {'opacity': '0'},
+          loginMoveOut: {'transform': 'translate(300px, -200px)', '-webkit-transform': 'translate(300px, -200px)'},
           translateReset: {'transform': 'translate(0px,0px)', '-webkit-transform': 'translate(0px,0px)'}
         }
             
@@ -257,25 +250,25 @@
         //3. Transition out the login screen elements
           
         $androidHeaderSlider.css(animationPos.leftSlider);
-        $gateScreenOverlay.css({'-webkit-transform': 'translate(-140px,80px)'});
+        $gateScreenOverlay.css(animationPos.leftOverlay);
         setTimeout(function() {
-              $logo.animate({'top': '-200px'}, 600, function() {
+              $logo.animate(animationPos.moveUp, 600, function() {
                 $logo.fadeOut(500, function() {
 
                   //**
                   //* Login Screen Animations
                   //**
                   $loginContainer.fadeIn();
-                  $loginFields.css({'opacity': '0.7'});
-                  $loginBtn.css({'opacity': '0.7'});
+                  $loginFields.css(animationPos.sheer);
+                  $loginBtn.css(animationPos.sheer);
                   
                   //Fade out the login form, starting with input fields
                   setTimeout(function() {
-                    $loginFields.css({'-webkit-transform': 'translate(300px, -200px)', 'opacity': '0'});
+                    $loginFields.css(animationPos.loginMoveOut).css(animationPos.transparent);
 
                     //fade out the login btn and text after a pause
                     setTimeout(function() {
-                      $loginBtn.css({'-webkit-transform': 'translate(300px, -200px)', 'opacity': '0'});
+                      $loginBtn.css(animationPos.loginMoveOut).css(animationPos.transparent);
                     }, 200); //ends login btn and fields fade up
 
                   }, 1200); //end login screen animations
@@ -285,13 +278,13 @@
                   //begin 2nd animation cycle
                   setTimeout(function() {
                     
-                    $androidHeader.css({'opacity': 0.7});
+                    $androidHeader.css(animationPos.sheer);
                     //slide in the blue navigation bar from the left
                     $androidHeaderSlider.css({'opacity': 0.7, '-webkit-transform': 'translate(0px,0px)'});
                       /*
                        Feeds screen begins here
                       */
-                      $feedsScreen.css({'opacity': 0.6});
+                      $feedsScreen.css(animationPos.sheer);
 
                       setTimeout(function() {
 
