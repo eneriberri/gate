@@ -236,7 +236,8 @@
           sheer: {'opacity': '0.7'},
           transparent: {'opacity': '0'},
           loginMoveOut: {'transform': 'translate(300px, -200px)', '-webkit-transform': 'translate(300px, -200px)'},
-          translateReset: {'transform': 'translate(0px,0px)', '-webkit-transform': 'translate(0px,0px)'}
+          translateReset: {'transform': 'translate(0px,0px)', '-webkit-transform': 'translate(0px,0px)'},
+          feedsMoveIn: {'transform': 'translate(142px,-90px)', '-webkit-transform': 'translate(142px,-90px)'}
         }
             
         doAnimation();
@@ -280,7 +281,7 @@
                     
                     $androidHeader.css(animationPos.sheer);
                     //slide in the blue navigation bar from the left
-                    $androidHeaderSlider.css({'opacity': 0.7, '-webkit-transform': 'translate(0px,0px)'});
+                    $androidHeaderSlider.css(animationPos.sheer).css(animationPos.translateReset);
                       /*
                        Feeds screen begins here
                       */
@@ -294,7 +295,7 @@
                           //because the css property transition makes fadeOut break - on elements with
                           //css of transition set, to achieve a fading effect, i am doing opacity: 0
                           setTimeout(function() {
-                            $feedsScreen.css({'-webkit-transform': 'translate(142px,-90px)', 'opacity': '0'});
+                            $feedsScreen.css(animationPos.feedsMoveIn).css(animationPos.transparent);
                             
                             
                             //Begin Gate Screen animation
