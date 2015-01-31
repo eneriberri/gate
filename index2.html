@@ -14,6 +14,13 @@
       a {
         text-decoration: none;
         color: #0b9ad2;
+        transition: all .5s ease-in-out;
+         -webkit-transition: all .5s ease-in-out; /** Chrome & Safari **/
+         -moz-transition: all .5s ease-in-out; /** Firefox **/
+         -o-transition: all .5s ease-in-out; /** Opera **/
+      }
+      a:hover {
+        color: #181E21;
       }
       
 /*ANDROID DEVICE*/
@@ -339,7 +346,7 @@
         
         
  
-        }, 1000); //parent setTimeout
+        }, 800); //parent setTimeout
         
       }
 
