@@ -16,14 +16,35 @@
   <script type="text/jsx">
     /*** @jsx React.DOM */
     
-    var inputField = React.createClass({
+    var InputField = React.createClass({
       render: function() {
-        return <input type="text" placeholder={this.props.placeholder}></input>;
+        return <input type={this.props.type} placeholder={this.props.placeholder}></input>;
+      }
+    });
+    
+    var Credentials = React.createClass({
+      getInitialState: function() {
+          return {
+            fields: [{placeholder: "email", type: "email"}, 
+            {placeholder: "password", type: "password"}]
+          }
+      },
+      
+      render: function() {
+        return (
+        <div class="credentials">
+          {this.state.fields.map(function(field) {
+            return (
+              <InputField type={field.type} placeholder={field.placeholder} />
+            )
+          })}        
+        </div>
+        )
       }
     });
     
     React.renderComponent(
-      <inputField placeholder="Login"/>,
+      <Credentials />,
       document.getElementById('right-wrapper')
     )
   </script>
