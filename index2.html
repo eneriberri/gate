@@ -227,9 +227,6 @@
           translateReset: {'transform': 'translate(0px,0px)', '-webkit-transform': 'translate(0px,0px)'},
           feedsMoveIn: {'transform': 'translate(142px,-90px)', '-webkit-transform': 'translate(142px,-90px)'}
         }
-            
-        doAnimation();
-        setInterval(doAnimation, 14000);
         
         function doAnimation() {
         //Pause before the start of all the animations
@@ -348,7 +345,11 @@
  
         }, 800); //parent setTimeout
         
-      }
+      } //end doAnimation function
+      
+      //begin animation loop, and restart every 14000ms
+      doAnimation();
+      setInterval(doAnimation, 14000);
 
       });
     </script>
