@@ -9,8 +9,26 @@
       margin: 0 auto;
     }
   </style>
+  
+  <script src="build/react.js"></script>
+  <script src="build/JSXTransformer.js"></script>
+  
+  <script type="text/jsx">
+    /*** @jsx React.DOM */
+    
+    var example = React.createClass({
+      render: function() {
+        return <p>YO</p>;
+      }
+    });
+    
+    React.renderComponent(
+      <example />,
+      document.getElementById('divider')
+    )
+  </script>
 </head>
 <body>
-  <div class="divider"></div>
+  <div id="divider"></div>
 </body>
 </HTML>
