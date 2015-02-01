@@ -3,7 +3,7 @@
   <meta charset="utf-8" />
   <title>Gate</title>
   <style>
-    .divider {
+    #mid-divider {
       border-left: 1px solid black;
       height: 500px;
       margin: 0 auto;
@@ -16,19 +16,21 @@
   <script type="text/jsx">
     /*** @jsx React.DOM */
     
-    var example = React.createClass({
+    var inputField = React.createClass({
       render: function() {
-        return <p>YO</p>;
+        return <input type="text" placeholder={this.props.placeholder}></input>;
       }
     });
     
     React.renderComponent(
-      <example />,
-      document.getElementById('divider')
+      <inputField placeholder="Login"/>,
+      document.getElementById('right-wrapper')
     )
   </script>
 </head>
 <body>
-  <div id="divider"></div>
+  <div id="left-wrapper"></div>
+  <div id="mid-divider"></div>
+  <div id="right-wrapper"></div>
 </body>
 </HTML>
