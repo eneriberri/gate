@@ -5,8 +5,19 @@
   <style>
     #mid-divider {
       border-left: 1px solid black;
-      height: 500px;
-      margin: 0 auto;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      top: 0;
+    }
+    
+    #right-wrapper input {
+      margin-left: 100px;
+      border: none;
+    }
+    #right-wrapper input:first-child {
+      margin-bottom: 10px;
+      border-bottom: 1px solid black;
     }
   </style>
   
@@ -25,17 +36,20 @@
     var Credentials = React.createClass({
       getInitialState: function() {
           return {
-            fields: [{placeholder: "email", type: "email"}, 
-            {placeholder: "password", type: "password"}]
+            fields: [ {placeholder: "email", type: "email"}, 
+                      {placeholder: "password", type: "password"} ]
           }
       },
       
       render: function() {
         return (
-        <div class="credentials">
+        <div>
           {this.state.fields.map(function(field) {
             return (
-              <InputField type={field.type} placeholder={field.placeholder} />
+              <div>
+                <InputField type={field.type} placeholder={field.placeholder} />
+                <br />
+              </div>
             )
           })}        
         </div>
