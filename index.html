@@ -2,6 +2,7 @@
 <head>
   <meta charset="utf-8" />
   <title>Gate</title>
+  <link rel="stylesheet" href="transition.css">
   <style>
     #mid-divider {
       border-left: 1px solid black;
@@ -23,49 +24,99 @@
   
   <script src="build/react.js"></script>
   <script src="build/JSXTransformer.js"></script>
+  <script src="build/react-with-addons.js"></script>
   
   <script type="text/jsx">
     /*** @jsx React.DOM */
-    
-    var InputField = React.createClass({
-      render: function() {
-        return <input type={this.props.type} placeholder={this.props.placeholder}></input>;
-      }
-    });
-    
-    var Credentials = React.createClass({
+    var CSSTransitionGroup = React.addons.CSSTransitionGroup;    
+    var INTERVAL = 2000;
+
+    var AnimateDemo = React.createClass({
       getInitialState: function() {
-          return {
-            fields: [ {placeholder: "email", type: "email"}, 
-                      {placeholder: "password", type: "password"} ]
-          }
+        return {start: 0};
       },
-      
+
+      componentDidMount: function() {
+        this.interval = setInterval(this.tick, INTERVAL);
+      },
+
+      componentWillUnmount: function() {
+        clearInterval(this.interval);
+      },
+
+      tick: function() {
+        this.setState({start: this.state.start + 1});
+      },
+
       render: function() {
+        var children = [];
+        var pos = 0;
+        var colors = ['red', 'gray', 'blue'];
+        for (var i = this.state.start; i < this.state.start + 3; i++) {
+          var style = {
+            left: pos * 128,
+            background: colors[i % 3]
+          };
+          pos++;
+          children.push(<div key={i} className="animateItem" style={style}>{i}</div>);
+        }
         return (
-        <div>
-          {this.state.fields.map(function(field) {
-            return (
-              <div>
-                <InputField type={field.type} placeholder={field.placeholder} />
-                <br />
-              </div>
-            )
-          })}        
-        </div>
-        )
+          <CSSTransitionGroup
+            className="animateExample"
+            transitionName="example">
+            {children}
+          </CSSTransitionGroup>
+        );
       }
     });
-    
+
     React.renderComponent(
-      <Credentials />,
-      document.getElementById('right-wrapper')
-    )
+      <AnimateDemo />,
+      document.getElementById('container')
+    );
   </script>
 </head>
 <body>
+  <div id="container"></div>
   <div id="left-wrapper"></div>
   <div id="mid-divider"></div>
   <div id="right-wrapper"></div>
+  
+
+<!--  var InputField = React.createClass({
+    render: function() {
+      return <input type={this.props.type} placeholder={this.props.placeholder}></input>;
+    }
+  });
+
+  var Credentials = React.createClass({
+    getInitialState: function() {
+        return {
+          fields: [ {placeholder: "email", type: "email"},
+                    {placeholder: "password", type: "password"} ]
+        }
+    },
+
+    render: function() {
+      return (
+      <div>
+        {this.state.fields.map(function(field) {
+          return (
+            <div>
+              <InputField type={field.type} placeholder={field.placeholder} />
+              <br />
+            </div>
+          )
+        })}
+      </div>
+      )
+    }
+  });
+
+  React.renderComponent(
+    <Credentials />,
+    document.getElementById('right-wrapper')
+  ) -->
+  
 </body>
 </HTML>
