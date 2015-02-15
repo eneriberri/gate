@@ -200,6 +200,9 @@
         opacity: 1;
       }
       
+      #android-container {
+        position: absolute;
+      }
       #android-container img {
         position: absolute;
         width: 65%;
@@ -219,19 +222,23 @@
       .example-enter {
         opacity: 0.01;
         transition: opacity .5s ease-in;
+        left: 0;
       }
 
       .example-enter.example-enter-active {
         opacity: 1;
+        left: 100px;
       }
       
       .example-leave {
         opacity: 1;
         transition: opacity .5s ease-in;
+        left: 100px;
       }
 
       .example-leave.example-leave-active {
         opacity: 0.01;
+        left: 0;
       }
 
     </style>
