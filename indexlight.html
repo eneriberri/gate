@@ -107,6 +107,33 @@
     :-ms-input-placeholder {  
        color: whitesmoke;  
     }
+    
+    
+    
+    /* React Animation CSS */
+    
+    .fade-enter {
+      opacity: 0.01;
+      transition: opacity 1s ease-in;
+/*      left: 0;*/
+    }
+
+    .fade-enter.fade-enter-active {
+      opacity: 1;
+/*      left: 100px;*/
+    }
+    
+    .fade-leave {
+      opacity: 1;
+      transition: opacity 1s ease-in;
+/*      left: 100px;*/
+    }
+
+    .fade-leave.fade-leave-active {
+      opacity: 0.01;
+/*      left: 0;*/
+    }
+    
   </style>
   
   
@@ -120,22 +147,42 @@
     /*** @jsx React.DOM */
     
     var CTG = React.addons.CSSTransitionGroup;
-    var INTERVAL = 2000;
+    var INTERVAL = 3000;
     
     var Animate = React.createClass({
       getInitialState: function() {
         return (
           {
-            imgPaths: ['phone_png/sizedscreen_aggregate.png'],
-            currentImg: 0
-          }
-        
+            currentImg: 0,
+            imgPaths: ['iphone_png/sizedscreen_aggregate.png',
+                       'iphone_png/sizedscreen_enterkey.png',
+                       'iphone_png/sizedscreen_gate.png',
+                       'iphone_png/sizedscreen_selectgate.png',
+                       'iphone_png/sizedscreen_unlockgate.png']
+          } 
         )
-      }
+      },
+      
+      componentDidMount: function() {
+        setInterval(this.getCurrentImg, INTERVAL);
+      },
+      
+      getCurrentImg: function() {
+        if(this.state.currentImg > this.state.imgPaths.length) {
+          this.setState({currentImg: 0});
+        }
+        else {
+          this.setState({currentImg: this.state.currentImg + 1 });
+        }
+      },
       
       render: function() {
+        var screenSrc = this.state.imgPaths[this.state.currentImg];
+        
         return (
-          <div></div>
+          <CTG transitionName="fade">
+            <img src={screenSrc} key={screenSrc} className="screen" />
+          </CTG>
         )
       }
     });
@@ -149,11 +196,11 @@
   <div class="device-wrapper">
     <img class="devices" src="iphone_png/devices.png">
     <div id="screens"></div>
-    <img class="screen" src="iphone_png/sizedscreen_aggregate.png">
+    <!-- <img class="screen" src="iphone_png/sizedscreen_aggregate.png">
     <img class="screen" src="iphone_png/sizedscreen_enterkey.png">
     <img class="screen" src="iphone_png/sizedscreen_gate.png">
     <img class="screen" src="iphone_png/sizedscreen_selectgate.png">
-    <img class="screen" src="iphone_png/sizedscreen_unlockgate.png">
+    <img class="screen" src="iphone_png/sizedscreen_unlockgate.png"> -->
   </div>
   
   <div class="gateblurb-wrapper">
