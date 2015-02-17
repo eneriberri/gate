@@ -13,6 +13,10 @@
     a {
       text-decoration: none;
     }
+    
+    .content-wrapper {
+      min-width: 670px;
+    }
     .device-wrapper {
       margin: 0 auto;
       min-width: 600px;
@@ -34,13 +38,17 @@
       bottom: 50px;
       left: 50px;
       line-height: 30px;
+      min-width: 285px;
     }
     .gateblurb-wrapper header {
       font-family: 'Roboto', sans-serif;
       font-size: 48px;
-      letter-spacing: 10px;
+      letter-spacing: 5px;
       text-transform: uppercase;
       margin-bottom: 30px;
+    }
+    .gate-logo {
+      
     }
     
     .blurb-footer {
@@ -169,10 +177,6 @@
     .fade-leave.fade-leave-active {
       opacity: 0.01;
     }
-    
-    strong {
-      font-weight: bold;
-    }
   </style>
   
   
@@ -232,43 +236,45 @@
 </head>
 
 <body>
-  <div class="device-wrapper">
-    <img class="devices" src="iphone_png/devices.png">
-    <div id="screens"></div>
-  </div>
+  <div class="content-wrapper">
+    <div class="device-wrapper">
+      <img class="devices" src="iphone_png/devices.png">
+      <div id="screens"></div>
+    </div>
   
-  <div class="gateblurb-wrapper">
-    <header>Gate</header>
-    Gate is a <strong>fast</strong> and <strong>fun</strong> way to group the people and things that matter in your life.
+    <div class="gateblurb-wrapper">
+      <header>Gate</header>
+      <span class="gate-logo"><img src="logo.png"></span>
+      ate is a <strong>fast</strong> and <strong>fun</strong> way to group the people and things that matter in your life.
 
-    Create a key, share it on the web, and let people unlock your Gate within seconds. 
+      Create a key, share it on the web, and let people unlock your Gate within seconds. 
 
-    Gates are <strong>private</strong> feeds only accessible to those who unlock them. Unlock Gates for your classes, organizations, interests, family, and more.
+      Gates are <strong>private</strong> feeds only accessible to those who unlock them. Unlock Gates for your classes, organizations, interests, family, and more.
 
-    Gate is the future of Social Networking - don't miss out.
+      Gate is the future of social networking - don't miss out.
     
-    <div class="blurb-footer">
-      <div class="badge-wrapper">
-        <a href="#">
-          <img id="iphone-badge" alt="Download on iTunes store" src="iphone_png/iphone_badge.png">
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.unlock.gate">
-          <img alt="Get it on Google Play"
-               src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
-        </a>
+      <div class="blurb-footer">
+        <div class="badge-wrapper">
+          <a href="#">
+            <img id="iphone-badge" alt="Download on iTunes store" src="iphone_png/iphone_badge.png">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.unlock.gate">
+            <img alt="Get it on Google Play"
+                 src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
+          </a>
+        </div>
+        <form class="login-form">
+          <input type="email" placeholder="email">
+          <br>
+          <input type="password" placeholder="password">
+          <br>
+          <button class="login-btn">Login</button>
+          <br>
+          <a class="forgot-pw" href="#">Forgot password?</a>
+        </form>
       </div>
-      <form class="login-form">
-        <input type="email" placeholder="email">
-        <br>
-        <input type="password" placeholder="password">
-        <br>
-        <button class="login-btn">Login</button>
-        <br>
-        <a class="forgot-pw" href="#">Forgot password?</a>
-      </form>
     </div>
   </div>
-  
 </body>
 
 </HTML>
